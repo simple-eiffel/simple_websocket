@@ -70,7 +70,6 @@ feature -- Client Operations
 			Result.append ("Sec-WebSocket-Version: 13%R%N")
 			Result.append ("%R%N")
 		ensure
-			result_not_void: Result /= Void
 			key_set: sec_websocket_key /= Void
 		end
 
@@ -201,7 +200,6 @@ feature -- Server Operations
 				create Result.make_empty
 			end
 		ensure
-			result_not_void: Result /= Void
 			accept_set: sec_websocket_accept /= Void
 		end
 
@@ -228,8 +226,6 @@ feature {NONE} -- Implementation
 			end
 			create foundation.make
 			Result := foundation.base64_encode_bytes (bytes)
-		ensure
-			result_not_void: Result /= Void
 		end
 
 	compute_accept_key (a_key: STRING): STRING
@@ -245,8 +241,6 @@ feature {NONE} -- Implementation
 			create foundation.make
 			sha1_bytes := foundation.sha1_bytes (combined)
 			Result := foundation.base64_encode_bytes (sha1_bytes)
-		ensure
-			result_not_void: Result /= Void
 		end
 
 	has_header (a_text: STRING; a_header: STRING; a_value: STRING): BOOLEAN

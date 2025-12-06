@@ -134,8 +134,6 @@ feature -- Derived Access
 				Result.append_character (payload [i].to_character_8)
 				i := i + 1
 			end
-		ensure
-			result_not_void: Result /= Void
 		end
 
 	close_code: INTEGER
@@ -159,8 +157,6 @@ feature -- Derived Access
 				Result.append_character (payload [i].to_character_8)
 				i := i + 1
 			end
-		ensure
-			result_not_void: Result /= Void
 		end
 
 feature -- Status
@@ -299,8 +295,6 @@ feature -- Encoding
 				Result [i] := result_list [i]
 				i := i + 1
 			end
-		ensure
-			result_not_void: Result /= Void
 		end
 
 feature -- Validation
@@ -334,7 +328,6 @@ feature {NONE} -- Implementation
 				i := i + 1
 			end
 		ensure
-			result_not_void: Result /= Void
 			same_size: Result.count = data.count
 		end
 

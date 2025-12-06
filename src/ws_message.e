@@ -82,7 +82,6 @@ feature -- Conversion
 				create Result.make_binary (data, True)
 			end
 		ensure
-			result_not_void: Result /= Void
 			is_fin: Result.is_fin
 		end
 
@@ -132,7 +131,6 @@ feature -- Conversion
 				Result.extend (create {WS_FRAME}.make (opcode, chunk, True))
 			end
 		ensure
-			result_not_void: Result /= Void
 			has_frames: Result.count > 0
 			last_is_fin: Result.last.is_fin
 		end
