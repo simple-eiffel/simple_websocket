@@ -29,9 +29,10 @@ Add to your ECF:
 Set environment variables:
 ```
 SIMPLE_WEBSOCKET=D:\prod\simple_websocket
-SIMPLE_BASE64=D:\prod\simple_base64
-SIMPLE_HASH=D:\prod\simple_hash
+SIMPLE_FOUNDATION_API=D:\prod\simple_foundation_api
 ```
+
+Note: simple_websocket uses simple_foundation_api for Base64 encoding and SHA-1 hashing in the handshake.
 
 ## Usage
 
@@ -217,8 +218,7 @@ end
 
 - EiffelBase
 - EiffelNet
-- simple_base64 (for handshake key encoding)
-- simple_hash (for SHA-1 in Sec-WebSocket-Accept)
+- simple_foundation_api (for Base64 encoding and SHA-1 hashing in handshake)
 
 ## References
 

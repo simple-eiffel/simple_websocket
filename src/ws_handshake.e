@@ -216,7 +216,7 @@ feature {NONE} -- Implementation
 			random: RANDOM
 			bytes: ARRAY [NATURAL_8]
 			i: INTEGER
-			base64: SIMPLE_BASE64
+			foundation: FOUNDATION
 		do
 			create random.make
 			random.start
@@ -226,8 +226,8 @@ feature {NONE} -- Implementation
 				bytes [i] := (random.item \\ 256).to_natural_8
 				i := i + 1
 			end
-			create base64.make
-			Result := base64.encode_bytes (bytes)
+			create foundation.make
+			Result := foundation.base64_encode_bytes (bytes)
 		ensure
 			result_not_void: Result /= Void
 		end
@@ -237,16 +237,14 @@ feature {NONE} -- Implementation
 		require
 			key_not_void: a_key /= Void
 		local
-			hash: SIMPLE_HASH
-			base64: SIMPLE_BASE64
+			foundation: FOUNDATION
 			sha1_bytes: ARRAY [NATURAL_8]
 			combined: STRING
 		do
 			combined := a_key + Guid
-			create hash.make
-			sha1_bytes := hash.sha1_bytes (combined)
-			create base64.make
-			Result := base64.encode_bytes (sha1_bytes)
+			create foundation.make
+			sha1_bytes := foundation.sha1_bytes (combined)
+			Result := foundation.base64_encode_bytes (sha1_bytes)
 		ensure
 			result_not_void: Result /= Void
 		end

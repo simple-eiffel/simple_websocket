@@ -13,12 +13,11 @@
 		<setting name="console_application" value="true"/>
 		<setting name="dead_code_removal" value="feature"/>
 		<capability>
-			<concurrency support="scoop" use="thread"/>
+			<concurrency support="thread"/>
 		</capability>
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
 		<library name="net" location="$ISE_LIBRARY\library\net\net.ecf"/>
-		<library name="simple_base64" location="$SIMPLE_BASE64\simple_base64.ecf"/>
-		<library name="simple_hash" location="$SIMPLE_HASH\simple_hash.ecf"/>
+		<library name="simple_foundation_api" location="$SIMPLE_FOUNDATION_API\simple_foundation_api.ecf"/>
 		<cluster name="src" location=".\src\" recursive="true"/>
 	</target>
 	<target name="simple_websocket_tests" extends="simple_websocket">
