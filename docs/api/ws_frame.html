@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple_websocket API Reference</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../images/logo.png" alt="simple_* logo" class="logo">
+        </div>
+        <h1>simple_websocket</h1>
+        <p class="tagline">API Reference</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#ws_frame">WS_FRAME</a></li>
+            <li><a href="#ws_frame_parser">WS_FRAME_PARSER</a></li>
+            <li><a href="#ws_handshake">WS_HANDSHAKE</a></li>
+            <li><a href="#ws_message">WS_MESSAGE</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="ws_frame">
+            <h2>WS_FRAME Class</h2>
+            <p>Represents a single WebSocket frame with encoding/decoding capabilities.</p>
+
+            <h3>Creation Procedures</h3>
+
+            <div class="api-section">
+                <h3>make_text (a_text: STRING; a_is_fin: BOOLEAN)</h3>
+                <div class="signature">create frame.make_text ("Hello", True)</div>
+                <p>Create a text frame with UTF-8 payload.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: text_not_void: a_text /= Void</div>
+                    <div class="ensure">ensure: is_text: is_text</div>
+                    <div class="ensure">ensure: opcode_set: opcode = Opcode_text</div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h3>make_binary (a_data: ARRAY [NATURAL_8]; a_is_fin: BOOLEAN)</h3>
+                <div class="signature">create frame.make_binary (byte_array, True)</div>
+                <p>Create a binary frame with raw byte payload.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: data_not_void: a_data /= Void</div>
+                    <div class="ensure">ensure: is_binary: is_binary</div>
+                    <div class="ensure">ensure: opcode_set: opcode = Opcode_binary</div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h3>make_close (a_code: INTEGER; a_reason: STRING)</h3>
+                <div class="signature">create frame.make_close (1000, "Normal closure")</div>
+                <p>Create a close frame with status code and reason.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: valid_code: a_code >= 1000 and a_code &lt;= 4999</div>
+                    <div class="require">require: reason_not_void: a_reason /= Void</div>
+                    <div class="ensure">ensure: is_close: is_close</div>
+                    <div class="ensure">ensure: is_control: is_control</div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h3>make_ping / make_pong</h3>
+                <div class="signature">create frame.make_ping</div>
+                <div class="signature">create frame.make_pong</div>
+                <p>Create ping/pong control frames for heartbeat.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="ensure">ensure: is_control: is_control</div>
+                    <div class="ensure">ensure: is_fin: is_fin</div>
+                </div>
+            </div>
+
+            <h3>Status Queries</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>is_fin</code></td>
+                        <td>BOOLEAN</td>
+                        <td>Is this the final fragment?</td>
+                    </tr>
+                    <tr>
+                        <td><code>is_text</code></td>
+                        <td>BOOLEAN</td>
+                        <td>Is this a text frame?</td>
+                    </tr>
+                    <tr>
+                        <td><code>is_binary</code></td>
+                        <td>BOOLEAN</td>
+                        <td>Is this a binary frame?</td>
+                    </tr>
+                    <tr>
+                        <td><code>is_close</code></td>
+                        <td>BOOLEAN</td>
+                        <td>Is this a close frame?</td>
+                    </tr>
+                    <tr>
+                        <td><code>is_ping</code></td>
+                        <td>BOOLEAN</td>
+                        <td>Is this a ping frame?</td>
+                    </tr>
+                    <tr>
+                        <td><code>is_pong</code></td>
+                        <td>BOOLEAN</td>
+                        <td>Is this a pong frame?</td>
+                    </tr>
+                    <tr>
+                        <td><code>is_control</code></td>
+                        <td>BOOLEAN</td>
+                        <td>Is this a control frame?</td>
+                    </tr>
+                    <tr>
+                        <td><code>opcode</code></td>
+                        <td>INTEGER</td>
+                        <td>Frame opcode (0-15)</td>
+                    </tr>
+                    <tr>
+                        <td><code>payload_length</code></td>
+                        <td>INTEGER</td>
+                        <td>Payload byte count</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Payload Access</h3>
+
+            <div class="api-section">
+                <h3>text_payload: STRING</h3>
+                <div class="signature">text := frame.text_payload</div>
+                <p>Get payload as UTF-8 string (for text frames).</p>
+            </div>
+
+            <div class="api-section">
+                <h3>close_code: INTEGER</h3>
+                <div class="signature">code := frame.close_code</div>
+                <p>Get close status code (for close frames).</p>
+            </div>
+
+            <div class="api-section">
+                <h3>close_reason: STRING</h3>
+                <div class="signature">reason := frame.close_reason</div>
+                <p>Get close reason text (for close frames).</p>
+            </div>
+
+            <h3>Operations</h3>
+
+            <div class="api-section">
+                <h3>set_mask (a_key: ARRAY [NATURAL_8])</h3>
+                <div class="signature">frame.set_mask (&lt;&lt;0x12, 0x34, 0x56, 0x78&gt;&gt;)</div>
+                <p>Set 4-byte mask key for client-to-server frames.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: key_not_void: a_key /= Void</div>
+                    <div class="require">require: key_size: a_key.count = 4</div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h3>to_bytes: ARRAY [NATURAL_8]</h3>
+                <div class="signature">bytes := frame.to_bytes</div>
+                <p>Encode frame to wire format bytes.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="ensure">ensure: result_not_void: Result /= Void</div>
+                    <div class="ensure">ensure: minimum_size: Result.count >= 2</div>
+                </div>
+            </div>
+
+            <h3>Constants</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Constant</th>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Opcode_continuation</code></td>
+                        <td>0</td>
+                        <td>Continuation frame</td>
+                    </tr>
+                    <tr>
+                        <td><code>Opcode_text</code></td>
+                        <td>1</td>
+                        <td>Text frame</td>
+                    </tr>
+                    <tr>
+                        <td><code>Opcode_binary</code></td>
+                        <td>2</td>
+                        <td>Binary frame</td>
+                    </tr>
+                    <tr>
+                        <td><code>Opcode_close</code></td>
+                        <td>8</td>
+                        <td>Close frame</td>
+                    </tr>
+                    <tr>
+                        <td><code>Opcode_ping</code></td>
+                        <td>9</td>
+                        <td>Ping frame</td>
+                    </tr>
+                    <tr>
+                        <td><code>Opcode_pong</code></td>
+                        <td>10</td>
+                        <td>Pong frame</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="ws_frame_parser">
+            <h2>WS_FRAME_PARSER Class</h2>
+            <p>Streaming parser for reading frames from byte streams.</p>
+
+            <div class="api-section">
+                <h3>make</h3>
+                <div class="signature">create parser.make</div>
+                <p>Initialize parser with empty buffer.</p>
+            </div>
+
+            <div class="api-section">
+                <h3>add_bytes (a_bytes: ARRAY [NATURAL_8])</h3>
+                <div class="signature">parser.add_bytes (received_data)</div>
+                <p>Add bytes to parse buffer.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: bytes_not_void: a_bytes /= Void</div>
+                    <div class="ensure">ensure: bytes_added: buffer.count >= old buffer.count</div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h3>parse: BOOLEAN</h3>
+                <div class="signature">if parser.parse then ...</div>
+                <p>Attempt to parse a frame. Returns True if successful.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="ensure">ensure: frame_if_success: Result implies has_frame</div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h3>has_frame: BOOLEAN</h3>
+                <div class="signature">if parser.has_frame then ...</div>
+                <p>Is a complete frame available?</p>
+            </div>
+
+            <div class="api-section">
+                <h3>last_frame: detachable WS_FRAME</h3>
+                <div class="signature">if attached parser.last_frame as f then ...</div>
+                <p>Get the last parsed frame.</p>
+            </div>
+
+            <div class="api-section">
+                <h3>reset</h3>
+                <div class="signature">parser.reset</div>
+                <p>Clear parser state and buffer.</p>
+            </div>
+        </section>
+
+        <section id="ws_handshake">
+            <h2>WS_HANDSHAKE Class</h2>
+            <p>WebSocket opening handshake for client and server.</p>
+
+            <h3>Client Features</h3>
+
+            <div class="api-section">
+                <h3>create_client_request (a_host, a_path: STRING): STRING</h3>
+                <div class="signature">request := handshake.create_client_request ("example.com", "/chat")</div>
+                <p>Generate HTTP upgrade request for client.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: host_not_void: a_host /= Void</div>
+                    <div class="require">require: path_not_void: a_path /= Void</div>
+                    <div class="ensure">ensure: key_generated: sec_websocket_key /= Void</div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h3>validate_server_response (a_response: STRING): BOOLEAN</h3>
+                <div class="signature">if handshake.validate_server_response (response) then ...</div>
+                <p>Validate server's handshake response.</p>
+            </div>
+
+            <h3>Server Features</h3>
+
+            <div class="api-section">
+                <h3>parse_client_request (a_request: STRING): BOOLEAN</h3>
+                <div class="signature">if handshake.parse_client_request (request) then ...</div>
+                <p>Parse incoming client handshake request.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: request_not_void: a_request /= Void</div>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h3>create_server_response: STRING</h3>
+                <div class="signature">response := handshake.create_server_response</div>
+                <p>Generate HTTP 101 response for server.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: valid_request: is_valid</div>
+                    <div class="ensure">ensure: has_101: Result.has_substring ("101")</div>
+                </div>
+            </div>
+
+            <h3>Status</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>is_valid</code></td>
+                        <td>BOOLEAN</td>
+                        <td>Was handshake successful?</td>
+                    </tr>
+                    <tr>
+                        <td><code>last_error</code></td>
+                        <td>STRING</td>
+                        <td>Error message if failed</td>
+                    </tr>
+                    <tr>
+                        <td><code>sec_websocket_key</code></td>
+                        <td>detachable STRING</td>
+                        <td>The Sec-WebSocket-Key value</td>
+                    </tr>
+                    <tr>
+                        <td><code>requested_path</code></td>
+                        <td>detachable STRING</td>
+                        <td>Requested URI path</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="ws_message">
+            <h2>WS_MESSAGE Class</h2>
+            <p>High-level message abstraction with fragmentation support.</p>
+
+            <div class="api-section">
+                <h3>make_text (a_text: STRING)</h3>
+                <div class="signature">create msg.make_text ("Hello")</div>
+                <p>Create a text message.</p>
+            </div>
+
+            <div class="api-section">
+                <h3>make_binary (a_data: ARRAY [NATURAL_8])</h3>
+                <div class="signature">create msg.make_binary (byte_array)</div>
+                <p>Create a binary message.</p>
+            </div>
+
+            <div class="api-section">
+                <h3>to_frame: WS_FRAME</h3>
+                <div class="signature">frame := msg.to_frame</div>
+                <p>Convert to a single frame (for small messages).</p>
+            </div>
+
+            <div class="api-section">
+                <h3>to_frames (a_max_size: INTEGER): ARRAYED_LIST [WS_FRAME]</h3>
+                <div class="signature">frames := msg.to_frames (1024)</div>
+                <p>Split into multiple frames with maximum payload size.</p>
+                <div class="contracts">
+                    <h4>Contracts</h4>
+                    <div class="require">require: positive_size: a_max_size > 0</div>
+                    <div class="ensure">ensure: at_least_one: Result.count >= 1</div>
+                    <div class="ensure">ensure: last_is_fin: Result.last.is_fin</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <a href="../index.html">&larr; Back to simple_websocket</a>
+        </p>
+        <p class="copyright">
+            Copyright &copy; 2024-2025 Larry Rix. MIT License.
+        </p>
+    </footer>
+</body>
+</html>

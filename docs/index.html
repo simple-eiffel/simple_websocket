@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple_websocket - RFC 6455 WebSocket Protocol for Eiffel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="simple_* logo" class="logo">
+        </div>
+        <h1>simple_websocket</h1>
+        <p class="tagline">RFC 6455 WebSocket Protocol for Eiffel</p>
+        <div class="badges">
+            <span class="badge badge-rfc">RFC 6455</span>
+            <span class="badge badge-version">v1.0</span>
+            <span class="badge badge-license">MIT</span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#frames">Frame Types</a></li>
+            <li><a href="api/ws_frame.html">API Reference</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="features">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>RFC 6455 Compliant</strong> - Full WebSocket protocol support</li>
+                <li><strong>Frame Types</strong> - Text, Binary, Close, Ping, Pong, Continuation</li>
+                <li><strong>Masking</strong> - Client-side XOR masking per specification</li>
+                <li><strong>Fragmentation</strong> - Split large messages into multiple frames</li>
+                <li><strong>Handshake</strong> - Complete client/server handshake handling</li>
+                <li><strong>Streaming Parser</strong> - Process frames from byte streams</li>
+                <li><strong>Design by Contract</strong> - Full preconditions and postconditions</li>
+            </ul>
+        </section>
+
+        <section id="quickstart">
+            <h2>Quick Start</h2>
+
+            <h3>Installation</h3>
+            <p>Add to your ECF:</p>
+            <pre><code>&lt;library name="simple_websocket" location="$SIMPLE_WEBSOCKET\simple_websocket.ecf"/&gt;</code></pre>
+
+            <h3>Creating Frames</h3>
+            <pre><code>local
+    frame: WS_FRAME
+    bytes: ARRAY [NATURAL_8]
+do
+    -- Text frame
+    create frame.make_text ("Hello, WebSocket!", True)
+    bytes := frame.to_bytes
+
+    -- Binary frame
+    create frame.make_binary (&lt;&lt;0x01, 0x02, 0x03&gt;&gt;, True)
+
+    -- Control frames
+    create frame.make_ping
+    create frame.make_pong
+    create frame.make_close (1000, "Normal closure")
+end</code></pre>
+
+            <h3>Client Handshake</h3>
+            <pre><code>local
+    handshake: WS_HANDSHAKE
+    request: STRING
+do
+    create handshake.make
+
+    -- Generate client handshake request
+    request := handshake.create_client_request ("example.com", "/chat")
+    -- Send request to server...
+
+    -- Validate server response
+    if handshake.validate_server_response (server_response) then
+        io.put_string ("WebSocket connection established!%N")
+    else
+        io.put_string ("Handshake failed: " + handshake.last_error + "%N")
+    end
+end</code></pre>
+
+            <h3>Server Handshake</h3>
+            <pre><code>local
+    handshake: WS_HANDSHAKE
+    response: STRING
+do
+    create handshake.make
+
+    -- Parse incoming client request
+    if handshake.parse_client_request (client_request) then
+        -- Generate server response
+        response := handshake.create_server_response
+        -- Send response to client...
+    else
+        -- Reject connection
+        io.put_string ("Invalid request: " + handshake.last_error + "%N")
+    end
+end</code></pre>
+
+            <h3>Parsing Frames</h3>
+            <pre><code>local
+    parser: WS_FRAME_PARSER
+    bytes: ARRAY [NATURAL_8]
+do
+    create parser.make
+
+    -- Add received bytes
+    parser.add_bytes (bytes)
+
+    -- Try to parse a complete frame
+    if parser.parse and parser.has_frame then
+        if attached parser.last_frame as frame then
+            if frame.is_text then
+                io.put_string ("Received: " + frame.text_payload + "%N")
+            elseif frame.is_close then
+                io.put_string ("Close code: " + frame.close_code.out + "%N")
+            end
+        end
+    end
+end</code></pre>
+
+            <h3>Message Fragmentation</h3>
+            <pre><code>local
+    msg: WS_MESSAGE
+    frames: ARRAYED_LIST [WS_FRAME]
+do
+    -- Create a large message
+    create msg.make_text ("Very long message content...")
+
+    -- Split into 1024-byte frames
+    frames := msg.to_frames (1024)
+
+    -- First frame has original opcode, rest are CONTINUATION
+    -- Last frame has FIN bit set
+end</code></pre>
+        </section>
+
+        <section id="frames">
+            <h2>Frame Opcodes (RFC 6455)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Opcode</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>0x0</code></td>
+                        <td>Continuation</td>
+                        <td>Fragment continuation</td>
+                    </tr>
+                    <tr>
+                        <td><code>0x1</code></td>
+                        <td>Text</td>
+                        <td>UTF-8 text data</td>
+                    </tr>
+                    <tr>
+                        <td><code>0x2</code></td>
+                        <td>Binary</td>
+                        <td>Binary data</td>
+                    </tr>
+                    <tr>
+                        <td><code>0x8</code></td>
+                        <td>Close</td>
+                        <td>Connection close</td>
+                    </tr>
+                    <tr>
+                        <td><code>0x9</code></td>
+                        <td>Ping</td>
+                        <td>Heartbeat request</td>
+                    </tr>
+                    <tr>
+                        <td><code>0xA</code></td>
+                        <td>Pong</td>
+                        <td>Heartbeat response</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="closecodes">
+            <h2>Close Codes (RFC 6455)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>1000</code></td>
+                        <td>Normal</td>
+                        <td>Clean close</td>
+                    </tr>
+                    <tr>
+                        <td><code>1001</code></td>
+                        <td>Going Away</td>
+                        <td>Server shutting down</td>
+                    </tr>
+                    <tr>
+                        <td><code>1002</code></td>
+                        <td>Protocol Error</td>
+                        <td>Protocol violation</td>
+                    </tr>
+                    <tr>
+                        <td><code>1003</code></td>
+                        <td>Unsupported</td>
+                        <td>Unsupported data type</td>
+                    </tr>
+                    <tr>
+                        <td><code>1007</code></td>
+                        <td>Invalid Payload</td>
+                        <td>Malformed data</td>
+                    </tr>
+                    <tr>
+                        <td><code>1008</code></td>
+                        <td>Policy Violation</td>
+                        <td>Generic policy error</td>
+                    </tr>
+                    <tr>
+                        <td><code>1009</code></td>
+                        <td>Message Too Big</td>
+                        <td>Message exceeds limit</td>
+                    </tr>
+                    <tr>
+                        <td><code>1011</code></td>
+                        <td>Server Error</td>
+                        <td>Unexpected server error</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="masking">
+            <h2>Frame Masking</h2>
+            <p>Per RFC 6455, all client-to-server frames must be masked using XOR with a 4-byte key:</p>
+            <pre><code>local
+    frame: WS_FRAME
+    mask: ARRAY [NATURAL_8]
+do
+    create frame.make_text ("Hello", True)
+
+    -- Set 4-byte mask key (usually random)
+    mask := &lt;&lt;0x12, 0x34, 0x56, 0x78&gt;&gt;
+    frame.set_mask (mask)
+
+    -- to_bytes will now produce masked output
+    bytes := frame.to_bytes
+end</code></pre>
+            <p>The parser automatically unmasks incoming masked frames.</p>
+        </section>
+
+        <section id="specs">
+            <h2>Specifications</h2>
+            <ul>
+                <li><a href="https://tools.ietf.org/html/rfc6455">RFC 6455</a> - The WebSocket Protocol</li>
+                <li><a href="https://tools.ietf.org/html/rfc7692">RFC 7692</a> - Compression Extensions (future)</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <a href="api/ws_frame.html">API Reference</a> |
+            <a href="https://github.com/ljr1981/simple_websocket">GitHub</a>
+        </p>
+        <p class="copyright">
+            Copyright &copy; 2024-2025 Larry Rix. MIT License.
+        </p>
+    </footer>
+</body>
+</html>

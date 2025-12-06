@@ -1,32 +1,39 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ljr1981/claude_eiffel_op_docs/main/artwork/LOGO.png" alt="simple_ library logo" width="400">
+</p>
+
 # simple_websocket
+
+**[Documentation](https://ljr1981.github.io/simple_websocket/)**
 
 RFC 6455 WebSocket protocol implementation for Eiffel. Handles frame encoding/decoding, message fragmentation, and WebSocket handshake.
 
 ## Features
 
-- **RFC 6455 Compliant**: Full WebSocket protocol support
-- **Frame Types**: Text, Binary, Close, Ping, Pong, Continuation
-- **Masking**: Client-side XOR masking per spec
-- **Fragmentation**: Split large messages into multiple frames
-- **Handshake**: Complete client/server handshake handling
-- **Streaming Parser**: Process frames from byte streams
+- **RFC 6455 Compliant** - Full WebSocket protocol support
+- **Frame Types** - Text, Binary, Close, Ping, Pong, Continuation
+- **Masking** - Client-side XOR masking per spec
+- **Fragmentation** - Split large messages into multiple frames
+- **Handshake** - Complete client/server handshake handling
+- **Streaming Parser** - Process frames from byte streams
+- **Design by Contract** - Full preconditions/postconditions
 
 ## Installation
 
-Add to your ECF file:
+Add to your ECF:
 
 ```xml
-<library name="simple_websocket" location="$SIMPLE_WEBSOCKET/simple_websocket.ecf"/>
+<library name="simple_websocket" location="$SIMPLE_WEBSOCKET\simple_websocket.ecf"/>
 ```
 
 Set environment variables:
 ```
-export SIMPLE_WEBSOCKET=/path/to/simple_websocket
-export SIMPLE_BASE64=/path/to/simple_base64
-export SIMPLE_HASH=/path/to/simple_hash
+SIMPLE_WEBSOCKET=D:\prod\simple_websocket
+SIMPLE_BASE64=D:\prod\simple_base64
+SIMPLE_HASH=D:\prod\simple_hash
 ```
 
-## Quick Start
+## Usage
 
 ### Creating Frames
 
@@ -206,32 +213,17 @@ end
 | 1009 | Message Too Big | Message exceeds limit |
 | 1011 | Server Error | Unexpected server error |
 
-## Tests
-
-Run the test suite:
-```bash
-ec -config simple_websocket.ecf -target simple_websocket_tests -c_compile
-./EIFGENs/simple_websocket_tests/W_code/simple_websocket.exe
-```
-
-**20 tests** covering frame creation, encoding, parsing, messages, and handshake.
-
 ## Dependencies
 
 - EiffelBase
 - EiffelNet
 - simple_base64 (for handshake key encoding)
 - simple_hash (for SHA-1 in Sec-WebSocket-Accept)
-- testing_ext (for tests)
-
-## License
-
-MIT License - See LICENSE file for details.
-
-## Author
-
-Larry Rix
 
 ## References
 
 - [RFC 6455 - The WebSocket Protocol](https://tools.ietf.org/html/rfc6455)
+
+## License
+
+MIT License - Copyright (c) 2024-2025, Larry Rix
