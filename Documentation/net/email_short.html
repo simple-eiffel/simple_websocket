@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Email Object"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="author" content="david s"/>
+<meta name="revised_by" content="Alexander Kogtenkov"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>email Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="email_chart.html">Chart</a>
+<a class="nav class" href="email_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="email"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Email Object&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;david s&quot;</span>
+	<span class="eitag">revised_by</span><span class="esymbol">:</span> <span class="estring">&quot;Alexander Kogtenkov&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/email_short.html">EMAIL</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../net/email_short.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../net/email_short.html#f_make_with_entry">make_with_entry</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations.</span>
+
+	<a name="f_transfer"></a><a class="efeature" href="../net/email_short.html#f_transfer">transfer</a> <span class="esymbol">(</span><span class="elocal">resource</span><span class="esymbol">:</span> <a class="eclass" href="../net/protocol_resource_short.html">PROTOCOL_RESOURCE</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Used when the mailer will receive an email from 'resource'.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Sender change</span>
+
+	<a name="f_add_sender_address"></a><a class="efeature" href="../net/email_short.html#f_add_sender_address">add_sender_address</a> <span class="esymbol">(</span><span class="elocal">a_sender</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Added </span><span class="equoted">a_sender</span><span class="ecomment"> address to &quot;From:&quot; entries.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Recipient change</span>
+
+	<a name="f_add_recipient_address"></a><a class="efeature" href="../net/email_short.html#f_add_recipient_address">add_recipient_address</a> <span class="esymbol">(</span><span class="elocal">a_recipient</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Added </span><span class="equoted">a_recipient</span><span class="ecomment"> address to &quot;To:&quot; entries.</span>
+
+	<a name="f_add_recipient_address_in_cc"></a><a class="efeature" href="../net/email_short.html#f_add_recipient_address_in_cc">add_recipient_address_in_cc</a> <span class="esymbol">(</span><span class="elocal">a_recipient</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Added </span><span class="equoted">a_recipient</span><span class="ecomment"> address to &quot;Cc:&quot; entries.</span>
+
+	<a name="f_add_recipient_address_in_bcc"></a><a class="efeature" href="../net/email_short.html#f_add_recipient_address_in_bcc">add_recipient_address_in_bcc</a> <span class="esymbol">(</span><span class="elocal">a_recipient</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Added </span><span class="equoted">a_recipient</span><span class="ecomment"> address to &quot;BCc:&quot; entries.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_has_header_entry"></a><a class="efeature" href="../net/email_short.html#f_has_header_entry">has_header_entry</a> <span class="esymbol">(</span><span class="elocal">header_key</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Entries changes</span>
+
+	<a name="f_add_header_entry"></a><a class="efeature" href="../net/email_short.html#f_add_header_entry">add_header_entry</a> <span class="esymbol">(</span><span class="elocal">header_key</span><span class="esymbol">,</span> <span class="elocal">header_entry</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add 'header_entry' to header 'header_key',</span>
+			<span class="ecomment">--</span><span class="ecomment"> If no such header exists, create it.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_void</span><span class="esymbol">:</span> <span class="elocal">header_entry</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="elocal">header_key</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_add_header_entries"></a><a class="efeature" href="../net/email_short.html#f_add_header_entries">add_header_entries</a> <span class="esymbol">(</span><span class="elocal">header_key</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">header_entries</span><span class="esymbol">:</span> <a class="eclass" href="../base/iterable_short.html">ITERABLE</a> <span class="esymbol">[</span><a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add multiple 'header_entries' at once &nbsp;to 'header_key',</span>
+			<span class="ecomment">--</span><span class="ecomment"> If not such header exists. create it.</span>
+
+	<a name="f_remove_header_entry"></a><a class="efeature" href="../net/email_short.html#f_remove_header_entry">remove_header_entry</a> <span class="esymbol">(</span><span class="elocal">header_key</span><span class="esymbol">,</span> <span class="elocal">header_entry</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove 'header_entry' from header 'header_key' if present.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">header_entry_no_longer_exists</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/email_resource_short.html#f_headers">headers</a><span class="edot">.</span><a class="efeature" href="../base/hash_table_short.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">header_key</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_header_after <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">l_header_after</span><span class="edot">.</span><a class="efeature" href="../net/header_short.html#f_entries">entries</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">header_entry</span><span class="esymbol">)</span>
+
+	<a name="f_remove_header_entries"></a><a class="efeature" href="../net/email_short.html#f_remove_header_entries">remove_header_entries</a> <span class="esymbol">(</span><span class="elocal">header_key</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove all header entries from header 'header_key' if present.	</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">wiped_out</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/email_resource_short.html#f_headers">headers</a><span class="edot">.</span><a class="efeature" href="../base/hash_table_short.html#f_item">item</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">header_key</span><span class="esymbol">)</span> <span class="ekeyword">as</span> l_header <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <span class="elocal">l_header</span><span class="edot">.</span><a class="efeature" href="../net/header_short.html#f_entries">entries</a><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_send"></a><a class="efeature" href="../net/email_short.html#f_send">send</a>
+			<span class="ecomment">--</span><span class="ecomment"> Send email.</span>
+
+	<a name="f_receive"></a><a class="efeature" href="../net/email_short.html#f_receive">receive</a>
+			<span class="ecomment">--</span><span class="ecomment"> Receive email.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Implementation (EMAIL_RESOURCE)</span>
+
+	<a name="f_splitted_recipients_from"></a><a class="efeature" href="../net/email_short.html#f_splitted_recipients_from">splitted_recipients_from</a> <span class="esymbol">(</span><span class="elocal">a_recipient_value</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> List of individual recipients from </span><span class="equoted">a_recipient_value</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Mainly to support input with multiple recipient addresses.</span>
+
+	<a name="f_can_be_received"></a><a class="efeature" href="../net/email_short.html#f_can_be_received">Can_be_received</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">True</span>
+			<span class="ecomment">--</span><span class="ecomment"> Can an email received?</span>
+
+	<a name="f_can_be_sent"></a><a class="efeature" href="../net/email_short.html#f_can_be_sent">can_be_sent</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can an email be send?</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2020, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/email_short.html">EMAIL</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="email_chart.html">Chart</a>
+<a class="nav class" href="email_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="email"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

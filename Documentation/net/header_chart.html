@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Objects that contains all the information relative to any header. Headers can only have email addresses informations."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="author" content="David s"/>
+<meta name="revised_by" content="Alexander Kogtenkov"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2021, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>header Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="header_links.html">Relations</a>
+<a class="nav class" href="header_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="header"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../net/header_chart.html">HEADER</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <span class="necluster">mail</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> 
+		<span class="estring">&quot;Objects that contains all the information relative to any header.</span>
+		<span class="estring">Headers can only have email addresses informations.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../net/header_short.html#f_make">make</a><span class="esymbol">,</span> <a class="efeature" href="../net/header_short.html#f_make_with_entries">make_with_entries</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../base/any_chart.html">ANY</a>
+
+<span class="ekeyword">Queries</span>
+	<span title="`entries' is declared in `Current'"><a class="efeature" href="../net/header_short.html#f_entries">entries</a><span class="esymbol">:</span> <a class="eclass" href="../base/arrayed_list_chart.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../base/readable_string_8_chart.html">READABLE_STRING_8</a><span class="esymbol">]</span></span>
+	<span title="`multiple_entries' is declared in `Current'"><a class="efeature" href="../net/header_short.html#f_multiple_entries">multiple_entries</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`unique_entry' is declared in `Current'"><a class="efeature" href="../net/header_short.html#f_unique_entry">unique_entry</a><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_chart.html">READABLE_STRING_8</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`add_entries' is declared in `Current'"><a class="efeature" href="../net/header_short.html#f_add_entries">add_entries</a> <span class="esymbol">(</span><span class="elocal">list</span><span class="esymbol">:</span> <a class="eclass" href="../base/iterable_chart.html">ITERABLE</a> <span class="esymbol">[</span><a class="eclass" href="../base/readable_string_8_chart.html">READABLE_STRING_8</a><span class="esymbol">]</span><span class="esymbol">)</span></span>
+	<span title="`add_entry' is declared in `Current'"><a class="efeature" href="../net/header_short.html#f_add_entry">add_entry</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_chart.html">READABLE_STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`enable_multiple_entries' is declared in `Current'"><a class="efeature" href="../net/header_short.html#f_enable_multiple_entries">enable_multiple_entries</a></span>
+	<span title="`remove_entry' is declared in `Current'"><a class="efeature" href="../net/header_short.html#f_remove_entry">remove_entry</a> <span class="esymbol">(</span><span class="elocal">entry</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_chart.html">READABLE_STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`remove_i_th_entry' is declared in `Current'"><a class="efeature" href="../net/header_short.html#f_remove_i_th_entry">remove_i_th_entry</a> <span class="esymbol">(</span><span class="elocal">i</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="header_links.html">Relations</a>
+<a class="nav class" href="header_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="header"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

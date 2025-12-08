@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Project-wide universal properties. This class is an ancestor to all developer-written classes. ANY may be customized for individual projects or teams."/>
+<meta name="library" content="Free implementation of ELKS library"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>any Relations</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="any_chart.html">Chart</a>
+<span class="nav class selected">Relations</span>
+<a class="nav class" href="any_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="any"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../base/any_links.html">ANY</a>
+
+<span class="ekeyword">Descendants</span>
+	<a class="eclass" href="../net/addrinfo_links.html">ADDRINFO</a><span class="echar">*</span>
+	<span class="neclass">AES</span>
+	<span class="neclass">AES_PARAMETERS</span><span class="echar">*</span>
+	<a class="eclass" href="../base/ascii_links.html">ASCII</a>
+	<span class="neclass">BASE32</span>
+	<span class="neclass">BASE64</span>
+	<a class="eclass" href="../base/basic_routines_links.html">BASIC_ROUTINES</a>
+	<span class="neclass">BCRYPT</span>
+	<span class="neclass">BOM_CONSTANTS</span>
+	<a class="eclass" href="../base/bool_string_links.html">BOOL_STRING</a>
+	<a class="eclass" href="../base/cell_links.html">CELL</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/character_property_links.html">CHARACTER_PROPERTY</a>
+	<span class="neclass">CODE_PAGES</span>
+	<a class="eclass" href="../base/code_page_constants_links.html">CODE_PAGE_CONSTANTS</a>
+	<span class="neclass">CODE_VALIDITY_CHECKER</span>
+	<a class="eclass" href="../net/comparator_links.html">COMPARATOR</a><span class="echar">*</span>
+	<a class="eclass" href="../net/comparator_builder_links.html">COMPARATOR_BUILDER</a>
+	<a class="eclass" href="../net/comparator_builder_impl_links.html">COMPARATOR_BUILDER_IMPL</a>
+	<a class="eclass" href="../base/console_links.html">CONSOLE</a>
+	<a class="eclass" href="../base/cursor_links.html">CURSOR</a>
+	<span class="neclass">C_DATE</span>
+	<a class="eclass" href="../net/data_resource_error_constants_links.html">DATA_RESOURCE_ERROR_CONSTANTS</a>
+	<a class="eclass" href="../net/data_resource_factory_links.html">DATA_RESOURCE_FACTORY</a>
+	<a class="eclass" href="../net/data_resource_factory_impl_links.html">DATA_RESOURCE_FACTORY_IMPL</a>
+	<span class="neclass">DATE_TIME_LANGUAGE_CONSTANTS</span><span class="echar">*</span>
+	<span class="neclass">DATE_TIME_SET</span>
+	<span class="neclass">DATE_TIME_VALIDITY_CHECKER</span>
+	<span class="neclass">DATE_VALIDITY_CHECKER</span>
+	<span class="neclass">DCM_EPSILON</span>
+	<span class="neclass">DCM_MA_DECIMAL_CONTEXT</span>
+	<span class="neclass">DCM_MA_DECIMAL_CONTEXT_CONSTANTS</span>
+	<span class="neclass">DCM_MA_DECIMAL_PARSER</span><span class="echar">*</span>
+	<span class="neclass">DCM_MA_DECIMAL_TEST</span>
+	<span class="neclass">DCM_MA_SHARED_DECIMAL_CONSTANTS</span>
+	<span class="neclass">DCM_MA_SHARED_DECIMAL_CONTEXT</span>
+	<span class="neclass">DCM_PRECOMPUTED_VALUES</span>
+	<a class="eclass" href="../base/debug_output_links.html">DEBUG_OUTPUT</a><span class="echar">*</span>
+	<a class="eclass" href="../base/declarator_links.html">DECLARATOR</a>
+	<a class="eclass" href="../base/disposable_links.html">DISPOSABLE</a><span class="echar">*</span>
+	<span class="neclass">DS_ARRAY_SORTER</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DS_BINARY_SEARCH_TREE_CONTAINER_NODE</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <span class="egeneric">K</span><span class="esymbol">]</span>
+	<span class="neclass">DS_CELL</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DS_CONTAINER</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DS_CURSOR</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DS_NESTED_LIST</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DS_NESTED_LIST_FLATTENER</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DS_SORTER</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DS_TOPOLOGICAL_SORTER</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">DT_CLOCK</span><span class="echar">*</span>
+	<span class="neclass">DT_DATE_HANDLER</span>
+	<span class="neclass">DT_DATE_VALUE</span><span class="echar">*</span>
+	<span class="neclass">DT_SHARED_SYSTEM_CLOCK</span>
+	<span class="neclass">DT_SHARED_WEEK_DAYS_FROM_MONDAY</span>
+	<span class="neclass">DT_SHARED_WEEK_DAYS_FROM_SUNDAY</span>
+	<span class="neclass">DT_TIME_HANDLER</span>
+	<span class="neclass">DT_TIME_VALUE</span><span class="echar">*</span>
+	<span class="neclass">DT_TIME_ZONE</span><span class="echar">*</span>
+	<span class="neclass">DT_WEEK_DAY</span><span class="echar">*</span>
+	<span class="neclass">DT_ZONED</span><span class="echar">*</span>
+	<a class="eclass" href="../net/email_constants_links.html">EMAIL_CONSTANTS</a>
+	<span class="neclass">ENCODER</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">U</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../base/readable_string_general_links.html">READABLE_STRING_GENERAL</a><span class="esymbol">,</span> <span class="egeneric">E</span> <span class="esymbol">-&gt;</span> <a class="eclass" href="../base/readable_string_general_links.html">READABLE_STRING_GENERAL</a><span class="esymbol">]</span>
+	<a class="eclass" href="../base/encoding_links.html">ENCODING</a>
+	<span class="neclass">ENCODING_DETECTOR</span><span class="echar">*</span>
+	<a class="eclass" href="../base/encoding_helper_links.html">ENCODING_HELPER</a>
+	<span class="neclass">ENCODING_I</span><span class="echar">*</span>
+	<a class="eclass" href="../base/exception_manager_links.html">EXCEPTION_MANAGER</a>
+	<a class="eclass" href="../base/exception_manager_factory_links.html">EXCEPTION_MANAGER_FACTORY</a>
+	<a class="eclass" href="../base/excep_const_links.html">EXCEP_CONST</a>
+	<a class="eclass" href="../base/file_utilities_links.html">FILE_UTILITIES</a>
+	<span class="neclass">FIND_SEPARATOR_FACILITY</span>
+	<a class="eclass" href="../base/format_double_links.html">FORMAT_DOUBLE</a>
+	<a class="eclass" href="../base/format_integer_links.html">FORMAT_INTEGER</a>
+	<a class="eclass" href="../simple_foundation_api/foundation_api_links.html">FOUNDATION_API</a>
+	<a class="eclass" href="../base/gc_info_links.html">GC_INFO</a>
+	<span class="neclass">GROUP_ELEMENT</span><span class="echar">*</span>
+	<a class="eclass" href="../base/hashable_links.html">HASHABLE</a><span class="echar">*</span>
+	<a class="eclass" href="../net/header_links.html">HEADER</a>
+	<span class="neclass">HELPER</span>
+	<a class="eclass" href="../net/host_address_links.html">HOST_ADDRESS</a>
+	<a class="eclass" href="../net/host_validity_checker_links.html">HOST_VALIDITY_CHECKER</a>
+	<span class="neclass">HOTP</span>
+	<span class="neclass">HTMX_ELEMENT</span><span class="echar">*</span>
+	<span class="neclass">HTMX_FACTORY</span>
+	<span class="neclass">HTMX_RENDER_CONTEXT</span>
+	<a class="eclass" href="../base/identified_controller_links.html">IDENTIFIED_CONTROLLER</a>
+	<a class="eclass" href="../base/identified_routines_links.html">IDENTIFIED_ROUTINES</a>
+	<a class="eclass" href="../net/inet_address_links.html">INET_ADDRESS</a><span class="echar">*</span>
+	<a class="eclass" href="../net/inet_address_impl_links.html">INET_ADDRESS_IMPL</a><span class="echar">*</span>
+	<a class="eclass" href="../net/inet_properties_links.html">INET_PROPERTIES</a>
+	<a class="eclass" href="../base/ise_runtime_links.html">ISE_RUNTIME</a>
+	<a class="eclass" href="../base/ise_scoop_runtime_links.html">ISE_SCOOP_RUNTIME</a>
+	<a class="eclass" href="../base/iterable_links.html">ITERABLE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/iteration_cursor_links.html">ITERATION_CURSOR</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/iterator_links.html">ITERATOR</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">JSON_BASIC_SERIALIZATION</span>
+	<span class="neclass">JSON_DESERIALIZER_CREATION_CALLBACK</span><span class="echar">*</span>
+	<span class="neclass">JSON_DESERIALIZER_CREATION_INFORMATION</span>
+	<span class="neclass">JSON_DESERIALIZER_ERROR</span>
+	<span class="neclass">JSON_EQUALITY_TESTER</span>
+	<span class="neclass">JSON_FILE_READER</span>
+	<span class="neclass">JSON_PARSER</span>
+	<span class="neclass">JSON_PARSER_ACCESS</span><span class="echar">*</span>
+	<span class="neclass">JSON_PATH</span>
+	<span class="neclass">JSON_READER</span>
+	<span class="neclass">JSON_SERIALIZABLE</span><span class="echar">*</span>
+	<span class="neclass">JSON_SERIALIZATION</span>
+	<span class="neclass">JSON_SERIALIZATION_CONTEXT</span>
+	<span class="neclass">JSON_SERIALIZATION_CONTEXT_I</span><span class="echar">*</span>
+	<span class="neclass">JSON_SERIALIZATION_FACTORY</span>
+	<span class="neclass">JSON_SERIALIZATION_I</span><span class="echar">*</span>
+	<span class="neclass">JSON_SERIALIZER_REFERENCE_COLLECTION</span>
+	<span class="neclass">JSON_STREAM_WRITER</span><span class="echar">*</span>
+	<span class="neclass">JSON_TOKENS</span>
+	<span class="neclass">JSON_VISITOR</span><span class="echar">*</span>
+	<span class="neclass">KI_BUFFER</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KI_EXCEPTIONS</span><span class="echar">*</span>
+	<span class="neclass">KI_FILE_SYSTEM</span><span class="echar">*</span>
+	<span class="neclass">KI_FILE_SYSTEM_ENTRY</span><span class="echar">*</span>
+	<span class="neclass">KI_INPUT_STREAM</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KI_MEMORY</span><span class="echar">*</span>
+	<span class="neclass">KI_OUTPUT_STREAM</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KI_PATHNAME</span><span class="echar">*</span>
+	<span class="neclass">KI_PLATFORM</span><span class="echar">*</span>
+	<span class="neclass">KI_SHELL_COMMAND</span><span class="echar">*</span>
+	<span class="neclass">KI_SYSTEM_CLOCK</span><span class="echar">*</span>
+	<span class="neclass">KL_AGENT_ROUTINES</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KL_ANY</span>
+	<span class="neclass">KL_ANY_ROUTINES</span>
+	<span class="neclass">KL_BOOLEAN_ROUTINES</span>
+	<span class="neclass">KL_CELL</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KL_CLONABLE</span>
+	<span class="neclass">KL_EIFFEL_COMPILER</span>
+	<span class="neclass">KL_EQUALITY_TESTER</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KL_GOBO_VERSION</span>
+	<span class="neclass">KL_GREGORIAN_CALENDAR</span>
+	<span class="neclass">KL_HASHABLE_ROUTINES</span>
+	<span class="neclass">KL_HASH_FUNCTION</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KL_IMPORTED_AGENT_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_ANY_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_ARRAY_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_BOOLEAN_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_CHARACTER_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_DOUBLE_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_HASHABLE_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_INTEGER_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_SPECIAL_ROUTINES</span>
+	<span class="neclass">KL_IMPORTED_STRING_ROUTINES</span>
+	<span class="neclass">KL_OPERATING_SYSTEM</span>
+	<span class="neclass">KL_PART_COMPARABLE</span><span class="echar">*</span>
+	<span class="neclass">KL_PART_COMPARATOR</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KL_SHARED_ARGUMENTS</span>
+	<span class="neclass">KL_SHARED_EIFFEL_COMPILER</span>
+	<span class="neclass">KL_SHARED_EXCEPTIONS</span>
+	<span class="neclass">KL_SHARED_EXECUTION_ENVIRONMENT</span>
+	<span class="neclass">KL_SHARED_FILE_SYSTEM</span>
+	<span class="neclass">KL_SHARED_MEMORY</span>
+	<span class="neclass">KL_SHARED_OPERATING_SYSTEM</span>
+	<span class="neclass">KL_SHARED_STANDARD_FILES</span>
+	<span class="neclass">KL_SHARED_STREAMS</span>
+	<span class="neclass">KL_SHARED_STRING_EQUALITY_TESTER</span>
+	<span class="neclass">KL_SPECIAL_ROUTINES</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KL_STANDARD_FILES</span>
+	<span class="neclass">KL_STRING_8_VALUES</span><span class="echar">*</span>
+	<span class="neclass">KL_TYPE</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<span class="neclass">KL_VALUES</span><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">,</span> <span class="egeneric">K</span><span class="esymbol">]</span>
+	<span class="neclass">LOCALIZED_PRINTER</span>
+	<span class="neclass">LOG_FACILITY_CONSTANTS</span>
+	<span class="neclass">LOG_OPTION_CONSTANTS</span>
+	<span class="neclass">LOG_PRIORITY_CONSTANTS</span>
+	<a class="eclass" href="../net/mailer_links.html">MAILER</a>
+	<a class="eclass" href="../base/math_const_links.html">MATH_CONST</a>
+	<span class="neclass">MA_DECIMAL_CONTEXT</span>
+	<span class="neclass">MA_DECIMAL_CONTEXT_CONSTANTS</span>
+	<span class="neclass">MA_DECIMAL_HANDLER</span>
+	<span class="neclass">MA_DECIMAL_PARSER</span><span class="echar">*</span>
+	<span class="neclass">MA_SHARED_DECIMAL_CONSTANTS</span>
+	<span class="neclass">MD_INLINE_PROCESSOR</span>
+	<span class="neclass">MD_PARSE_STATE</span>
+	<span class="neclass">MD_TABLE_PROCESSOR</span>
+	<a class="eclass" href="../base/memory_stream_links.html">MEMORY_STREAM</a>
+	<a class="eclass" href="../base/memory_structure_links.html">MEMORY_STRUCTURE</a><span class="echar">*</span>
+	<a class="eclass" href="../base/mem_const_links.html">MEM_CONST</a>
+	<a class="eclass" href="../base/mem_info_links.html">MEM_INFO</a>
+	<span class="neclass">MESSAGE_DIGEST</span><span class="echar">*</span>
+	<a class="eclass" href="../base/mismatch_corrector_links.html">MISMATCH_CORRECTOR</a>
+	<a class="eclass" href="../base/native_array_links.html">NATIVE_ARRAY</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/native_string_handler_links.html">NATIVE_STRING_HANDLER</a>
+	<a class="eclass" href="../base/numeric_information_links.html">NUMERIC_INFORMATION</a>
+	<a class="eclass" href="../base/object_graph_marker_links.html">OBJECT_GRAPH_MARKER</a>
+	<a class="eclass" href="../base/object_graph_traversable_links.html">OBJECT_GRAPH_TRAVERSABLE</a><span class="echar">*</span>
+	<a class="eclass" href="../base/operating_environment_links.html">OPERATING_ENVIRONMENT</a>
+	<a class="eclass" href="../net/packet_links.html">PACKET</a>
+	<a class="eclass" href="../base/part_comparable_links.html">PART_COMPARABLE</a><span class="echar">*</span>
+	<span class="neclass">PERCENT_ENCODER</span>
+	<a class="eclass" href="../base/platform_links.html">PLATFORM</a>
+	<a class="eclass" href="../net/poll_command_links.html">POLL_COMMAND</a><span class="echar">*</span>
+	<a class="eclass" href="../net/poll_mask_links.html">POLL_MASK</a>
+	<a class="eclass" href="../base/profiling_setting_links.html">PROFILING_SETTING</a>
+	<a class="eclass" href="../base/refactoring_helper_links.html">REFACTORING_HELPER</a>
+	<a class="eclass" href="../base/reflector_constants_links.html">REFLECTOR_CONSTANTS</a>
+	<a class="eclass" href="../base/reflector_helper_links.html">REFLECTOR_HELPER</a>
+	<span class="neclass">RT_DBG_EXECUTION_PARAMETERS</span>
+	<span class="neclass">RT_DBG_EXECUTION_RECORDER</span>
+	<a class="eclass" href="../base/rt_debugger_links.html">RT_DEBUGGER</a>
+	<span class="neclass">RT_EXTENSION_COMMON</span><span class="echar">*</span>
+	<span class="neclass">RX_BYTE_CODE</span>
+	<span class="neclass">RX_CASE_MAPPING</span>
+	<span class="neclass">RX_CHARACTER_SET</span>
+	<span class="neclass">RX_PATTERN_MATCHER</span><span class="echar">*</span>
+	<span class="neclass">RX_PCRE_BYTE_CODE_CONSTANTS</span>
+	<span class="neclass">RX_PCRE_COMPILER</span>
+	<span class="neclass">RX_PCRE_ERROR_CONSTANTS</span>
+	<span class="neclass">RX_PCRE_ESCAPE_CONSTANTS</span>
+	<span class="neclass">RX_PCRE_OPTION_ROUTINES</span>
+	<span class="neclass">RX_PCRE_ROUTINES</span>
+	<span class="neclass">RX_PCRE_SHARED_CHARACTER_SETS</span>
+	<span class="neclass">SALT_GENERATOR</span><span class="echar">*</span>
+	<a class="eclass" href="../base/sed_abstract_objects_table_links.html">SED_ABSTRACT_OBJECTS_TABLE</a><span class="echar">*</span>
+	<a class="eclass" href="../base/sed_error_links.html">SED_ERROR</a>
+	<a class="eclass" href="../base/sed_error_factory_links.html">SED_ERROR_FACTORY</a>
+	<a class="eclass" href="../base/sed_meta_model_links.html">SED_META_MODEL</a>
+	<a class="eclass" href="../base/sed_multi_object_serialization_links.html">SED_MULTI_OBJECT_SERIALIZATION</a>
+	<a class="eclass" href="../base/sed_reader_writer_links.html">SED_READER_WRITER</a><span class="echar">*</span>
+	<a class="eclass" href="../base/sed_storable_facilities_links.html">SED_STORABLE_FACILITIES</a>
+	<a class="eclass" href="../base/sed_type_mismatch_links.html">SED_TYPE_MISMATCH</a>
+	<a class="eclass" href="../base/sed_utilities_links.html">SED_UTILITIES</a>
+	<a class="eclass" href="../base/sed_versions_links.html">SED_VERSIONS</a>
+	<span class="neclass">SHARED_BASE64</span>
+	<span class="neclass">SHARED_EJSON</span>
+	<a class="eclass" href="../base/shared_execution_environment_links.html">SHARED_EXECUTION_ENVIRONMENT</a>
+	<span class="neclass">SHARED_HTML_ENCODER</span>
+	<span class="neclass">SHARED_JSON_ENCODER</span>
+	<span class="neclass">SHARED_URL_ENCODER</span>
+	<span class="neclass">SHARED_UTF8_URL_ENCODER</span>
+	<span class="neclass">SHARED_XML_ENCODER</span>
+	<span class="neclass">SIMPLE_AGE</span>
+	<span class="neclass">SIMPLE_BASE64</span>
+	<span class="neclass">SIMPLE_CSV</span>
+	<span class="neclass">SIMPLE_DATETIME</span>
+	<span class="neclass">SIMPLE_HASH</span>
+	<span class="neclass">SIMPLE_JSON_CONSTANTS</span>
+	<span class="neclass">SIMPLE_JSON_ERROR</span>
+	<span class="neclass">SIMPLE_JSON_MERGE_PATCH</span>
+	<span class="neclass">SIMPLE_JSON_MERGE_PATCH_RESULT</span>
+	<span class="neclass">SIMPLE_JSON_PATCH</span>
+	<span class="neclass">SIMPLE_JSON_PATCH_RESULT</span>
+	<span class="neclass">SIMPLE_JSON_SCHEMA</span>
+	<span class="neclass">SIMPLE_JSON_SCHEMA_VALIDATION_ERROR</span>
+	<span class="neclass">SIMPLE_JSON_SCHEMA_VALIDATION_RESULT</span>
+	<span class="neclass">SIMPLE_JSON_SERIALIZABLE</span><span class="echar">*</span>
+	<span class="neclass">SIMPLE_JSON_STREAM_ELEMENT</span>
+	<span class="neclass">SIMPLE_JSON_VALUE</span>
+	<span class="neclass">SIMPLE_LOGGER</span>
+	<span class="neclass">SIMPLE_LOG_TIMER</span>
+	<span class="neclass">SIMPLE_MARKDOWN</span>
+	<span class="neclass">SIMPLE_PROCESS</span>
+	<span class="neclass">SIMPLE_PROCESS_HELPER</span>
+	<span class="neclass">SIMPLE_RANDOMIZER</span>
+	<span class="neclass">SIMPLE_REGEX</span>
+	<span class="neclass">SIMPLE_REGEX_BUILDER</span>
+	<span class="neclass">SIMPLE_REGEX_MATCH</span>
+	<span class="neclass">SIMPLE_REGEX_PATTERNS</span>
+	<span class="neclass">SIMPLE_UUID</span>
+	<span class="neclass">SIMPLE_VALIDATOR</span>
+	<span class="neclass">SIMPLE_XML</span>
+	<span class="neclass">SIMPLE_XML_BUILDER</span>
+	<span class="neclass">SIMPLE_XML_DOCUMENT</span>
+	<span class="neclass">SIMPLE_XML_ELEMENT</span>
+	<a class="eclass" href="../net/socket_address_links.html">SOCKET_ADDRESS</a>
+	<a class="eclass" href="../net/socket_poller_links.html">SOCKET_POLLER</a><span class="echar">*</span>
+	<a class="eclass" href="../net/socket_resources_links.html">SOCKET_RESOURCES</a>
+	<a class="eclass" href="../net/socket_timeout_utilities_links.html">SOCKET_TIMEOUT_UTILITIES</a>
+	<a class="eclass" href="../base/std_files_links.html">STD_FILES</a>
+	<a class="eclass" href="../base/string_handler_links.html">STRING_HANDLER</a>
+	<a class="eclass" href="../base/string_searcher_links.html">STRING_SEARCHER</a><span class="echar">*</span>
+	<span class="neclass">ST_COLLATOR</span>
+	<span class="neclass">ST_DATE_TIME_ROUTINES</span>
+	<span class="neclass">ST_FORMATTER</span><span class="echar">*</span>
+	<span class="neclass">ST_FORMATTING_ROUTINES</span>
+	<span class="neclass">ST_FORMAT_DATE_TIME_RESULT</span>
+	<span class="neclass">ST_IMPORTED_UNICODE_CHARACTER_CLASS_ROUTINES</span>
+	<span class="neclass">ST_IMPORTED_UNICODE_FULL_CASE_MAPPING</span>
+	<span class="neclass">ST_IMPORTED_UNICODE_NORMALIZATION_ROUTINES</span>
+	<span class="neclass">ST_IMPORTED_UNICODE_V510_CHARACTER_CLASS_ROUTINES</span>
+	<span class="neclass">ST_IMPORTED_UNICODE_V510_FULL_CASE_MAPPING</span>
+	<span class="neclass">ST_IMPORTED_UNICODE_V510_NORMALIZATION_ROUTINES</span>
+	<span class="neclass">ST_PARAMETER_FORMATTER</span><span class="echar">*</span>
+	<span class="neclass">ST_SHARED_FORMATTERS</span>
+	<span class="neclass">ST_SPLITTER</span>
+	<span class="neclass">ST_STRING_ROUTINES</span>
+	<span class="neclass">ST_UNICODE_NORMALIZATION_CONSTANTS</span>
+	<span class="neclass">ST_XSLT_FORMAT_DATE_TIME</span>
+	<span class="neclass">ST_XSLT_NUMBER_ROUTINES</span>
+	<a class="eclass" href="../base/subset_strategy_links.html">SUBSET_STRATEGY</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/system_encodings_links.html">SYSTEM_ENCODINGS</a>
+	<span class="neclass">SYSTEM_ENCODINGS_I</span><span class="echar">*</span>
+	<a class="eclass" href="../base/system_string_links.html">SYSTEM_STRING</a>
+	<a class="eclass" href="../base/system_string_factory_links.html">SYSTEM_STRING_FACTORY</a>
+	<a class="eclass" href="../base/test_case_links.html">TEST_CASE</a><span class="echar">*</span>
+	<a class="eclass" href="../base/thread_environment_links.html">THREAD_ENVIRONMENT</a>
+	<span class="neclass">TIME_UTILITY</span>
+	<span class="neclass">TIME_VALIDITY_CHECKER</span>
+	<a class="eclass" href="../base/to_special_links.html">TO_SPECIAL</a> <span class="esymbol">[</span><span class="egeneric">T</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/tracing_handler_links.html">TRACING_HANDLER</a><span class="echar">*</span>
+	<a class="eclass" href="../base/tracing_setting_links.html">TRACING_SETTING</a>
+	<a class="eclass" href="../net/transaction_links.html">TRANSACTION</a><span class="echar">*</span>
+	<a class="eclass" href="../net/transfer_command_constants_links.html">TRANSFER_COMMAND_CONSTANTS</a>
+	<a class="eclass" href="../net/transfer_error_links.html">TRANSFER_ERROR</a>
+	<a class="eclass" href="../net/transfer_manager_builder_links.html">TRANSFER_MANAGER_BUILDER</a>
+	<span class="neclass">UC_CHARACTER_CODES</span>
+	<span class="neclass">UC_IMPORTED_UNICODE_ROUTINES</span>
+	<span class="neclass">UC_IMPORTED_UTF16_ROUTINES</span>
+	<span class="neclass">UC_IMPORTED_UTF32_ROUTINES</span>
+	<span class="neclass">UC_IMPORTED_UTF8_ROUTINES</span>
+	<span class="neclass">UC_SHARED_STRING_COMPARATOR</span>
+	<span class="neclass">UC_SHARED_STRING_EQUALITY_TESTER</span>
+	<span class="neclass">UC_STRING</span>
+	<span class="neclass">UC_STRING_HANDLER</span>
+	<span class="neclass">UC_UNICODE_ROUTINES</span>
+	<span class="neclass">UC_UNICODE_VERSIONING</span><span class="echar">*</span>
+	<span class="neclass">UC_V510_CTYPE_LOWERCASE</span>
+	<span class="neclass">UC_V510_CTYPE_TITLECASE</span>
+	<span class="neclass">UC_V510_CTYPE_UPPERCASE</span>
+	<a class="eclass" href="../base/unix_signals_links.html">UNIX_SIGNALS</a>
+	<a class="eclass" href="../base/utf_converter_links.html">UTF_CONVERTER</a>
+	<span class="neclass">UT_ARRAY_FORMATTER</span>
+	<span class="neclass">UT_BOOLEAN_FORMATTER</span>
+	<span class="neclass">UT_CHARACTER_CODES</span>
+	<span class="neclass">UT_CHARACTER_FORMATTER</span>
+	<span class="neclass">UT_COUNTER</span>
+	<span class="neclass">UT_CSV_HANDLER</span>
+	<span class="neclass">UT_ERROR</span><span class="echar">*</span>
+	<span class="neclass">UT_ERROR_HANDLER</span>
+	<span class="neclass">UT_FILENAME_HANDLER</span>
+	<span class="neclass">UT_FILE_URI_ROUTINES</span>
+	<span class="neclass">UT_HOST_PORT</span>
+	<span class="neclass">UT_HOST_PORT_ROUTINES</span>
+	<span class="neclass">UT_IMPORTED_FORMATTERS</span>
+	<span class="neclass">UT_INTEGER_FORMATTER</span>
+	<span class="neclass">UT_MEDIA_TYPE</span>
+	<span class="neclass">UT_SHARED_ECF_VERSIONS</span>
+	<span class="neclass">UT_SHARED_ECMA_VERSIONS</span>
+	<span class="neclass">UT_SHARED_FILE_URI_ROUTINES</span>
+	<span class="neclass">UT_SHARED_ISE_VERSIONS</span>
+	<span class="neclass">UT_SHARED_MEDIA_TYPE_EQUALITY_TESTER</span>
+	<span class="neclass">UT_SHARED_URL_ENCODING</span>
+	<span class="neclass">UT_STRING_FORMATTER</span>
+	<span class="neclass">UT_TRISTATE</span>
+	<span class="neclass">UT_URI</span>
+	<span class="neclass">UT_URI_STRING</span>
+	<span class="neclass">UT_URL_ENCODING</span>
+	<span class="neclass">UT_VERSION</span>
+	<span class="neclass">UUID_GENERATOR</span>
+	<span class="neclass">VALIDATION_ERROR</span>
+	<span class="neclass">VALIDATION_RESULT</span>
+	<a class="eclass" href="../base/versionable_links.html">VERSIONABLE</a><span class="echar">*</span>
+	<a class="eclass" href="../src/ws_frame_links.html">WS_FRAME</a>
+	<a class="eclass" href="../src/ws_frame_parser_links.html">WS_FRAME_PARSER</a>
+	<a class="eclass" href="../src/ws_handshake_links.html">WS_HANDSHAKE</a>
+	<a class="eclass" href="../src/ws_message_links.html">WS_MESSAGE</a>
+	<span class="neclass">XM_CALLBACKS</span><span class="echar">*</span>
+	<span class="neclass">XM_CALLBACKS_FILTER_FACTORY</span>
+	<span class="neclass">XM_CALLBACKS_SOURCE</span><span class="echar">*</span>
+	<span class="neclass">XM_CATALOG_ENTRY</span>
+	<span class="neclass">XM_CATALOG_MANAGER_HANDLER</span>
+	<span class="neclass">XM_DELEGATE_CATALOG_ENTRY</span>
+	<span class="neclass">XM_DTD_ATTRIBUTE_CONTENT</span>
+	<span class="neclass">XM_DTD_CALLBACKS</span><span class="echar">*</span>
+	<span class="neclass">XM_DTD_CALLBACKS_SOURCE</span><span class="echar">*</span>
+	<span class="neclass">XM_DTD_ELEMENT_CONTENT</span>
+	<span class="neclass">XM_DTD_EXTERNAL_ID</span>
+	<span class="neclass">XM_EIFFEL_DECLARATION</span>
+	<span class="neclass">XM_EIFFEL_PARSER_ERRORS</span>
+	<span class="neclass">XM_ERROR_CODES</span>
+	<span class="neclass">XM_EXTERNAL_RESOLVER</span><span class="echar">*</span>
+	<span class="neclass">XM_FORMAL_PUBLIC_IDENTIFIER_ROUTINES</span>
+	<span class="neclass">XM_MARKUP_CONSTANTS</span>
+	<span class="neclass">XM_NAMESPACE_RESOLVER_CONTEXT</span>
+	<span class="neclass">XM_NODE</span><span class="echar">*</span>
+	<span class="neclass">XM_NODE_PROCESSOR</span>
+	<span class="neclass">XM_OUTPUT</span>
+	<span class="neclass">XM_PARSER_FACTORY</span><span class="echar">*</span>
+	<span class="neclass">XM_POSITION</span><span class="echar">*</span>
+	<span class="neclass">XM_POSITION_TABLE</span>
+	<span class="neclass">XM_RESOLVER_FACTORY</span>
+	<span class="neclass">XM_RESOLVER_MEDIA_TYPE</span><span class="echar">*</span>
+	<span class="neclass">XM_REWRITE_CATALOG_ENTRY</span>
+	<span class="neclass">XM_SHARED_CATALOG_MANAGER</span>
+	<span class="neclass">XM_SHARED_UNICODE_CHARACTERS</span>
+	<span class="neclass">XM_SOURCE</span><span class="echar">*</span>
+	<span class="neclass">XM_STRING_MODE</span>
+	<span class="neclass">XM_SUFFIX_CATALOG_ENTRY</span>
+	<span class="neclass">XM_TREE_CALLBACKS_PIPE</span>
+	<span class="neclass">XM_UNICODE_CHARACTERS</span><span class="echar">*</span>
+	<span class="neclass">XM_UNICODE_STRING_ROUTINES</span>
+	<span class="neclass">XM_URI_RESOLVER</span><span class="echar">*</span>
+	<span class="neclass">XM_XMLNS_GENERATOR_CONTEXT</span>
+	<span class="neclass">XM_XPOINTER_TOKENS</span>
+	<span class="neclass">XOR_SHIFT_64</span>
+	<span class="neclass">YY_BUFFER</span>
+	<span class="neclass">YY_PARSER</span><span class="echar">*</span>
+	<span class="neclass">YY_PARSER_ACTION</span>
+	<span class="neclass">YY_PARSER_TOKENS</span><span class="echar">*</span>
+	<span class="neclass">YY_SCANNER</span><span class="echar">*</span>
+
+<span class="ekeyword">Clients</span>
+	<a class="eclass" href="../base/any_links.html">ANY</a>
+	<span class="neclass">EJSON</span>
+	<a class="eclass" href="../base/internal_links.html">INTERNAL</a>
+	<a class="eclass" href="../base/ise_scoop_runtime_links.html">ISE_SCOOP_RUNTIME</a>
+	<span class="neclass">JSON_REFLECTOR_DESERIALIZER</span>
+	<span class="neclass">JSON_SERIALIZER_CONTEXT</span>
+	<span class="neclass">JSON_SERIALIZER_REFERENCE_COLLECTION</span>
+	<span class="neclass">JSON_SMART_REFLECTOR_DESERIALIZER</span>
+	<span class="neclass">KL_ANY_ROUTINES</span>
+	<span class="neclass">KL_HASHABLE_ROUTINES</span>
+	<a class="eclass" href="../base/memory_links.html">MEMORY</a>
+	<a class="eclass" href="../base/mismatch_information_links.html">MISMATCH_INFORMATION</a>
+	<a class="eclass" href="../base/reflected_object_links.html">REFLECTED_OBJECT</a><span class="echar">*</span>
+	<a class="eclass" href="../base/reflector_links.html">REFLECTOR</a>
+	<a class="eclass" href="../base/routine_links.html">ROUTINE</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">OPEN_ARGS</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/tuple_links.html">TUPLE</a> <span class="ekeyword">create</span> <a class="efeature" href="../base/any_short.html#f_default_create">default_create</a> <span class="ekeyword">end</span><span class="esymbol">]</span>
+	<span class="neclass">RT_DBG_ATTRIBUTE_RECORD</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/any_links.html">ANY</a><span class="esymbol">]</span>
+	<span class="neclass">RT_DBG_CALL_RECORD</span>
+	<span class="neclass">RT_DBG_EXECUTION_RECORDER</span>
+	<span class="neclass">RT_DBG_FIELD_RECORD</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/any_links.html">ANY</a><span class="esymbol">]</span>
+	<span class="neclass">RT_DBG_INTERNAL</span><span class="echar">*</span>
+	<span class="neclass">RT_DBG_LOCAL_RECORD</span> <span class="esymbol">[</span><span class="egeneric">G</span> <span class="esymbol">-&gt;</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/any_links.html">ANY</a><span class="esymbol">]</span>
+	<span class="neclass">RT_EXTENSION</span>
+	<span class="neclass">RT_EXTENSION_GENERAL</span><span class="echar">*</span>
+	<a class="eclass" href="../base/sed_error_factory_links.html">SED_ERROR_FACTORY</a>
+	<a class="eclass" href="../base/sed_recoverable_deserializer_links.html">SED_RECOVERABLE_DESERIALIZER</a>
+	<span class="neclass">SIMPLE_LOGGER</span>
+	<span class="neclass">SIMPLE_VALIDATOR</span>
+	<span class="neclass">ST_FORMATTER</span><span class="echar">*</span>
+
+<span class="ekeyword">Suppliers</span>
+	<a class="eclass" href="../base/any_links.html">ANY</a>
+	<a class="eclass" href="../base/boolean_links.html">BOOLEAN</a>
+	<a class="eclass" href="../base/exceptions_links.html">EXCEPTIONS</a>
+	<a class="eclass" href="../base/mismatch_corrector_links.html">MISMATCH_CORRECTOR</a>
+	<a class="eclass" href="../base/operating_environment_links.html">OPERATING_ENVIRONMENT</a>
+	<a class="eclass" href="../base/readable_string_8_links.html">READABLE_STRING_8</a><span class="echar">*</span>
+	<a class="eclass" href="../base/std_files_links.html">STD_FILES</a>
+	<a class="eclass" href="../base/string_32_links.html">STRING_32</a>
+	<a class="eclass" href="../base/string_8_links.html">STRING_8</a>
+	<a class="eclass" href="../base/type_links.html">TYPE</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="any_chart.html">Chart</a>
+<span class="nav class selected">Relations</span>
+<a class="nav class" href="any_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="any"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

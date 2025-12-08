@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Implementation of transfer manager builder"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2021, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>transfer_manager_builder_impl Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="transfer_manager_builder_impl_links.html">Relations</a>
+<a class="nav class" href="transfer_manager_builder_impl_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="transfer_manager_builder_impl"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../net/transfer_manager_builder_impl_chart.html">TRANSFER_MANAGER_BUILDER_IMPL</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <span class="necluster">transfer</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Implementation of transfer manager builder&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_make">make</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../net/data_resource_factory_chart.html">DATA_RESOURCE_FACTORY</a>
+	<a class="eclass" href="../net/host_validity_checker_chart.html">HOST_VALIDITY_CHECKER</a>
+
+<span class="ekeyword">Queries</span>
+	<span title="`count' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`error' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_error">error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`error_reason' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_error_reason">error_reason</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`host_ok' was declared in HOST_VALIDITY_CHECKER"><a class="efeature" href="../net/host_validity_checker_short.html#f_host_ok">host_ok</a> <span class="esymbol">(</span><span class="elocal">h</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_address_correct' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_address_correct">is_address_correct</a> <span class="esymbol">(</span><span class="elocal">addr</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">mode</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_empty' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_empty">is_empty</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_mode_valid' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_mode_valid">is_mode_valid</a> <span class="esymbol">(</span><span class="elocal">mode</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_added_source_correct' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_last_added_source_correct">last_added_source_correct</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`last_added_target_correct' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_last_added_target_correct">last_added_target_correct</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`manager' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_manager">manager</a><span class="esymbol">:</span> <a class="eclass" href="../net/transfer_manager_chart.html">TRANSFER_MANAGER</a></span>
+	<span title="`manager_built' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_manager_built">manager_built</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`resource_factory' was declared in DATA_RESOURCE_FACTORY"><a class="efeature" href="../net/data_resource_factory_short.html#f_resource_factory">Resource_factory</a><span class="esymbol">:</span> <a class="eclass" href="../net/data_resource_factory_impl_chart.html">DATA_RESOURCE_FACTORY_IMPL</a></span>
+	<span title="`transaction' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transaction">transaction</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../net/transaction_chart.html">TRANSACTION</a></span>
+	<span title="`transfer_finished' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer_finished">transfer_finished</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`transfer_succeeded' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer_succeeded">transfer_succeeded</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`add_transaction' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_add_transaction">add_transaction</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">,</span> <span class="elocal">t</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`build_manager' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_build_manager">build_manager</a></span>
+	<span title="`remove_transaction' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_remove_transaction">remove_transaction</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+	<span title="`reset_proxies' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_reset_proxies">reset_proxies</a></span>
+	<span title="`reset_source_proxy' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_reset_source_proxy">reset_source_proxy</a></span>
+	<span title="`reset_target_proxy' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_reset_target_proxy">reset_target_proxy</a></span>
+	<span title="`set_proxies' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_set_proxies">set_proxies</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+	<span title="`set_source_proxy' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_set_source_proxy">set_source_proxy</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+	<span title="`set_target_proxy' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_set_target_proxy">set_target_proxy</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+	<span title="`set_timeout' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_set_timeout">set_timeout</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+	<span title="`transfer' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer">transfer</a></span>
+	<span title="`wipe_out' is declared in `Current'"><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_wipe_out">wipe_out</a></span>
+
+<span class="ekeyword">Constraints</span>
+	<span class="etag">readable set exists</span>
+	<span class="etag">writable set exists</span>
+	<span class="etag">resource hash</span>
+	<span class="etag">success constraint</span>
+	<span class="etag">count equality</span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="transfer_manager_builder_impl_links.html">Relations</a>
+<a class="nav class" href="transfer_manager_builder_impl_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="transfer_manager_builder_impl"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

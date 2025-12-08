@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Unified resource locators"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>url Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="url_chart.html">Chart</a>
+<a class="nav class" href="url_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="url"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Unified resource locators&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/url_short.html">URL</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_service"></a><a class="efeature" href="../net/url_short.html#f_service">service</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of service</span>
+
+	<a name="f_port"></a><a class="efeature" href="../net/url_short.html#f_port">port</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Port used by service</span>
+
+	<a name="f_default_port"></a><a class="efeature" href="../net/url_short.html#f_default_port">default_port</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Default port number for service</span>
+
+	<a name="f_proxy_host"></a><a class="efeature" href="../net/url_short.html#f_proxy_host">proxy_host</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name or address of proxy host</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">proxy_supported</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_supported">is_proxy_supported</a>
+			<span class="etag">has_proxy</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_used">is_proxy_used</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_not_empty</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_proxy_port"></a><a class="efeature" href="../net/url_short.html#f_proxy_port">proxy_port</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Port of proxy</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">proxy_supported</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_supported">is_proxy_supported</a>
+			<span class="etag">has_proxy</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_used">is_proxy_used</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_non_negative</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_location"></a><a class="efeature" href="../net/url_short.html#f_location">location</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Full URL of resource</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_is_correct"></a><a class="efeature" href="../net/url_short.html#f_is_correct">is_correct</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is URL correct?</span>
+
+	<a name="f_is_proxy_supported"></a><a class="efeature" href="../net/url_short.html#f_is_proxy_supported">is_proxy_supported</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are proxy connections supported?</span>
+
+	<a name="f_proxy_host_ok"></a><a class="efeature" href="../net/url_short.html#f_proxy_host_ok">proxy_host_ok</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is host name of proxy correct?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">proxy_supported</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_supported">is_proxy_supported</a>
+
+	<a name="f_is_proxy_used"></a><a class="efeature" href="../net/url_short.html#f_is_proxy_used">is_proxy_used</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is a proxy used?</span>
+
+	<a name="f_is_password_accepted"></a><a class="efeature" href="../net/url_short.html#f_is_password_accepted">is_password_accepted</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can a password be set?</span>
+
+	<a name="f_has_username"></a><a class="efeature" href="../net/url_short.html#f_has_username">has_username</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Can address contain a username?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_set_port"></a><a class="efeature" href="../net/url_short.html#f_set_port">set_port</a> <span class="esymbol">(</span><span class="elocal">port_no</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set port to </span><span class="equoted">port_no</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">port_non_negative</span><span class="esymbol">:</span> <span class="elocal">port_no</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">port_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_port">port</a> <span class="esymbol">=</span> <span class="elocal">port_no</span>
+
+	<a name="f_set_proxy"></a><a class="efeature" href="../net/url_short.html#f_set_proxy">set_proxy</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">port_no</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set proxy host to </span><span class="equoted">host</span><span class="ecomment"> and proxy port to </span><span class="equoted">port_no</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">proxy_supported</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_supported">is_proxy_supported</a>
+			<span class="etag">non_empty_host</span><span class="esymbol">:</span> <span class="elocal">host</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">host</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+			<span class="etag">host_valid</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_proxy_host_ok">proxy_host_ok</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">)</span>
+			<span class="etag">non_negative_port</span><span class="esymbol">:</span> <span class="elocal">port_no</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">host_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_proxy_host">proxy_host</a> <span class="esymbol">=</span> <span class="elocal">host</span>
+			<span class="etag">port_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_proxy_port">proxy_port</a> <span class="esymbol">=</span> <span class="elocal">port_no</span>
+
+	<a name="f_set_proxy_information"></a><a class="efeature" href="../net/url_short.html#f_set_proxy_information">set_proxy_information</a> <span class="esymbol">(</span><span class="elocal">pi</span><span class="esymbol">:</span> <a class="eclass" href="../net/proxy_information_short.html">PROXY_INFORMATION</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set proxy information to </span><span class="equoted">pi</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">proxy_supported</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_supported">is_proxy_supported</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">proxy_information_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_proxy_information">proxy_information</a> <span class="esymbol">=</span> <span class="elocal">pi</span>
+
+	<a name="f_set_username"></a><a class="efeature" href="../net/url_short.html#f_set_username">set_username</a> <span class="esymbol">(</span><span class="elocal">un</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set username.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">username_ok</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_has_username">has_username</a>
+			<span class="etag">non_empty_username</span><span class="esymbol">:</span> <span class="elocal">un</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">un</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_set_password"></a><a class="efeature" href="../net/url_short.html#f_set_password">set_password</a> <span class="esymbol">(</span><span class="elocal">pw</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set password.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">password_accepted</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_password_accepted">is_password_accepted</a>
+			<span class="etag">non_empty_password</span><span class="esymbol">:</span> <span class="elocal">pw</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">pw</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_reset_proxy"></a><a class="efeature" href="../net/url_short.html#f_reset_proxy">reset_proxy</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reset proxy information.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">proxy_supported</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_supported">is_proxy_supported</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">no_proxy_set</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../net/url_short.html#f_is_proxy_used">is_proxy_used</a>
+			<span class="etag">port_reset</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_proxy_port">proxy_port</a> <span class="esymbol">=</span> <span class="enumber">0</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">proxy_used_definition</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_used">is_proxy_used</a> <span class="esymbol">=</span> <span class="esymbol">(</span><a class="efeature" href="../net/url_short.html#f_proxy_information">proxy_information</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span><span class="esymbol">)</span>
+	<span class="etag">proxy_usage_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../net/url_short.html#f_is_proxy_used">is_proxy_used</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../net/url_short.html#f_is_proxy_supported">is_proxy_supported</a>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2020, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/url_short.html">URL</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="url_chart.html">Chart</a>
+<a class="nav class" href="url_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="url"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

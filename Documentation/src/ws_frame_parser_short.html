@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="WebSocket frame parser for reading frames from byte stream"/>
+<meta name="author" content="Larry Rix"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>ws_frame_parser Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="ws_frame_parser_chart.html">Chart</a>
+<a class="nav class" href="ws_frame_parser_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="ws_frame_parser"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;WebSocket frame parser for reading frames from byte stream&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Larry Rix&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../src/ws_frame_parser_short.html">WS_FRAME_PARSER</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../src/ws_frame_parser_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_has_frame"></a><a class="efeature" href="../src/ws_frame_parser_short.html#f_has_frame">has_frame</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is a complete frame available?</span>
+
+	<a name="f_last_frame"></a><a class="efeature" href="../src/ws_frame_parser_short.html#f_last_frame">last_frame</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../src/ws_frame_short.html">WS_FRAME</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last parsed frame.</span>
+
+	<a name="f_last_error"></a><a class="efeature" href="../src/ws_frame_parser_short.html#f_last_error">last_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Last error message.</span>
+
+	<a name="f_has_error"></a><a class="efeature" href="../src/ws_frame_parser_short.html#f_has_error">has_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Did an error occur?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Operations</span>
+
+	<a name="f_add_bytes"></a><a class="efeature" href="../src/ws_frame_parser_short.html#f_add_bytes">add_bytes</a> <span class="esymbol">(</span><span class="elocal">a_bytes</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add bytes to parse buffer.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">bytes_not_void</span><span class="esymbol">:</span> <span class="elocal">a_bytes</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">bytes_added</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_parser_short.html#f_buffer">buffer</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_count">count</a> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="ekeyword">old</span> <a class="efeature" href="../src/ws_frame_parser_short.html#f_buffer">buffer</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_count">count</a>
+
+	<a name="f_parse"></a><a class="efeature" href="../src/ws_frame_parser_short.html#f_parse">parse</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Attempt to parse a frame from buffer.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Return True if successful.</span>
+
+	<a name="f_reset"></a><a class="efeature" href="../src/ws_frame_parser_short.html#f_reset">reset</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reset parser state.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">empty_buffer</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_parser_short.html#f_buffer">buffer</a><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+			<span class="etag">no_frame</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../src/ws_frame_parser_short.html#f_has_frame">has_frame</a>
+			<span class="etag">no_error</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../src/ws_frame_parser_short.html#f_has_error">has_error</a>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">buffer_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_parser_short.html#f_buffer">buffer</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">last_error_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_parser_short.html#f_last_error">last_error</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../src/ws_frame_parser_short.html">WS_FRAME_PARSER</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="ws_frame_parser_chart.html">Chart</a>
+<a class="nav class" href="ws_frame_parser_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="ws_frame_parser"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

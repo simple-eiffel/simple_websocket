@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Resources require for EiffelNet."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>socket_resources Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="socket_resources_chart.html">Chart</a>
+<a class="nav class" href="socket_resources_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="socket_resources"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Resources require for EiffelNet.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/socket_resources_short.html">SOCKET_RESOURCES</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../base/any_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_error"></a><a class="efeature" href="../net/socket_resources_short.html#f_error">error</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Output a related error message.</span>
+
+	<a name="f_error_number"></a><a class="efeature" href="../net/socket_resources_short.html#f_error_number">error_number</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Returned error number</span>
+
+	<a name="f_socket_ok"></a><a class="efeature" href="../net/socket_resources_short.html#f_socket_ok">socket_ok</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> No error</span>
+
+	<a name="f_socket_family_not_supported"></a><a class="efeature" href="../net/socket_resources_short.html#f_socket_family_not_supported">socket_family_not_supported</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Requested family is not supported.</span>
+
+	<a name="f_address_not_readable"></a><a class="efeature" href="../net/socket_resources_short.html#f_address_not_readable">address_not_readable</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Unreadable address</span>
+
+	<a name="f_protected_address"></a><a class="efeature" href="../net/socket_resources_short.html#f_protected_address">protected_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> No access to this address is allowed.</span>
+
+	<a name="f_already_bound"></a><a class="efeature" href="../net/socket_resources_short.html#f_already_bound">already_bound</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Socket has already been bound.</span>
+
+	<a name="f_address_in_use"></a><a class="efeature" href="../net/socket_resources_short.html#f_address_in_use">address_in_use</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Address is in use by another socket.</span>
+
+	<a name="f_invalid_address"></a><a class="efeature" href="../net/socket_resources_short.html#f_invalid_address">invalid_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Address is not valid.</span>
+
+	<a name="f_invalid_socket_handle"></a><a class="efeature" href="../net/socket_resources_short.html#f_invalid_socket_handle">invalid_socket_handle</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Socket descriptor is not valid.</span>
+
+	<a name="f_bad_socket_handle"></a><a class="efeature" href="../net/socket_resources_short.html#f_bad_socket_handle">bad_socket_handle</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Socket descriptor is bad.</span>
+
+	<a name="f_no_permission"></a><a class="efeature" href="../net/socket_resources_short.html#f_no_permission">no_permission</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> No permission is given to user for this socket.</span>
+
+	<a name="f_no_buffers"></a><a class="efeature" href="../net/socket_resources_short.html#f_no_buffers">no_buffers</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> No more buffers available</span>
+
+	<a name="f_dtable_full"></a><a class="efeature" href="../net/socket_resources_short.html#f_dtable_full">dtable_full</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Descriptor table is full</span>
+
+	<a name="f_protocol_not_supported"></a><a class="efeature" href="../net/socket_resources_short.html#f_protocol_not_supported">protocol_not_supported</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Protocol is not supported on this platform.</span>
+
+	<a name="f_not_connected"></a><a class="efeature" href="../net/socket_resources_short.html#f_not_connected">not_connected</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Socket is not connect.</span>
+
+	<a name="f_socket_would_block"></a><a class="efeature" href="../net/socket_resources_short.html#f_socket_would_block">socket_would_block</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Call to read, write, etc would have blocked.</span>
+
+	<a name="f_connect_in_progress"></a><a class="efeature" href="../net/socket_resources_short.html#f_connect_in_progress">connect_in_progress</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Call to connect returned on a non-blocking socket.</span>
+
+	<a name="f_socket_in_use"></a><a class="efeature" href="../net/socket_resources_short.html#f_socket_in_use">socket_in_use</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Socket is already in use.</span>
+
+	<a name="f_expired_socket"></a><a class="efeature" href="../net/socket_resources_short.html#f_expired_socket">expired_socket</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Socket connection has expired.</span>
+
+	<a name="f_connection_refused"></a><a class="efeature" href="../net/socket_resources_short.html#f_connection_refused">connection_refused</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Connection is refused (possibly due to security).</span>
+
+	<a name="f_network"></a><a class="efeature" href="../net/socket_resources_short.html#f_network">network</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Socket failed due to network problems.</span>
+
+	<a name="f_zero_option"></a><a class="efeature" href="../net/socket_resources_short.html#f_zero_option">zero_option</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> No options provided</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Externals: flags for send, sendto recv and recvfrom socket calls</span>
+
+	<a name="f_c_oobmsg"></a><a class="efeature" href="../net/socket_resources_short.html#f_c_oobmsg">c_oobmsg</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Out of bound message</span>
+
+	<a name="f_c_peekmsg"></a><a class="efeature" href="../net/socket_resources_short.html#f_c_peekmsg">c_peekmsg</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Peek message</span>
+
+	<a name="f_c_msgdontroute"></a><a class="efeature" href="../net/socket_resources_short.html#f_c_msgdontroute">c_msgdontroute</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Do not route message</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2020, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/socket_resources_short.html">SOCKET_RESOURCES</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="socket_resources_chart.html">Chart</a>
+<a class="nav class" href="socket_resources_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="socket_resources"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

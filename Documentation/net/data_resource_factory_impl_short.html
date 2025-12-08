@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Implementation of data resource factory"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>data_resource_factory_impl Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="data_resource_factory_impl_chart.html">Chart</a>
+<a class="nav class" href="data_resource_factory_impl_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="data_resource_factory_impl"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Implementation of data resource factory&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/data_resource_factory_impl_short.html">DATA_RESOURCE_FACTORY_IMPL</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../net/data_resource_factory_impl_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_resource"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_resource">resource</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../net/data_resource_short.html">DATA_RESOURCE</a>
+			<span class="ecomment">--</span><span class="ecomment"> Created data resource</span>
+
+	<a name="f_service"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_service">service</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Requested service</span>
+
+	<a name="f_address"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_address">address</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Address (without service part)</span>
+
+	<a name="f_url"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_url">url</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../net/url_short.html">URL</a>
+			<span class="ecomment">--</span><span class="ecomment"> URL representation of the address</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_is_service_supported"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_is_service_supported">is_service_supported</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is service supported?</span>
+
+	<a name="f_is_address_set"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_is_address_set">is_address_set</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has address been set?</span>
+
+	<a name="f_is_address_correct"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_is_address_correct">is_address_correct</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is address correct?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">address_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/data_resource_factory_impl_short.html#f_is_address_set">is_address_set</a>
+
+	<a name="f_default_service"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_default_service">default_service</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Name of service assumed if no service is specified in address</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_set_address"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_set_address">set_address</a> <span class="esymbol">(</span><span class="elocal">addr</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set address.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">address_exists</span><span class="esymbol">:</span> <span class="elocal">addr</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">address_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">addr</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">address_set_if_supported</span><span class="esymbol">:</span> <a class="efeature" href="../net/data_resource_factory_impl_short.html#f_is_service_supported">is_service_supported</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../net/data_resource_factory_impl_short.html#f_is_address_set">is_address_set</a>
+
+	<a name="f_set_default_service"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_set_default_service">set_default_service</a> <span class="esymbol">(</span><span class="elocal">service_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set default service to </span><span class="equoted">service_name</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">name_exists</span><span class="esymbol">:</span> <span class="elocal">service_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">name_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">service_name</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_create_resource"></a><a class="efeature" href="../net/data_resource_factory_impl_short.html#f_create_resource">create_resource</a>
+			<span class="ecomment">--</span><span class="ecomment"> Create resource.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">correct_address</span><span class="esymbol">:</span> <a class="efeature" href="../net/data_resource_factory_impl_short.html#f_is_address_correct">is_address_correct</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">resource_created</span><span class="esymbol">:</span> <a class="efeature" href="../net/data_resource_factory_impl_short.html#f_resource">resource</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">default_service_specified</span><span class="esymbol">:</span> <a class="efeature" href="../net/data_resource_factory_impl_short.html#f_default_service">default_service</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../net/data_resource_factory_impl_short.html#f_default_service">default_service</a><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2020, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/data_resource_factory_impl_short.html">DATA_RESOURCE_FACTORY_IMPL</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="data_resource_factory_impl_chart.html">Chart</a>
+<a class="nav class" href="data_resource_factory_impl_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="data_resource_factory_impl"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

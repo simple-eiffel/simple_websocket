@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="File URL."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="eis" content="name=The file URI Scheme, protocol=URI, src=https://tools.ietf.org/html/rfc8089"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>file_url Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="file_url_chart.html">Chart</a>
+<a class="nav class" href="file_url_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="file_url"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;File URL.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+	<span class="eitag">eis</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">name=The &quot;file&quot; URI Scheme</span>
+	<span class="estring">]</span><span class="estring">&quot;</span><span class="esymbol">,</span> <span class="estring">&quot;protocol=URI&quot;</span><span class="esymbol">,</span> <span class="estring">&quot;src=</span><a class="estring" href="https://tools.ietf.org/html/rfc8089">https://tools.ietf.org/html/rfc8089</a><span class="estring">&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/file_url_short.html">FILE_URL</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../net/url_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_path"></a><a class="efeature" href="../net/file_url_short.html#f_path">path</a><span class="esymbol">:</span> <a class="eclass" href="../base/path_short.html">PATH</a>
+			<span class="ecomment">--</span><span class="ecomment"> Path to the file.</span>
+
+	<a name="f_service"></a><a class="efeature" href="../net/file_url_short.html#f_service">Service</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;file&quot;
+			<span class="ecomment">--</span><span class="ecomment"> Name of the service.</span>
+
+	<a name="f_hash_code"></a><a class="efeature" href="../net/file_url_short.html#f_hash_code">Hash_code</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">0</span>
+			<span class="ecomment">--</span><span class="ecomment"> Hash function</span>
+			<span class="ecomment">--</span><span class="ecomment"> (Objects of the current type cannot be hashed, therefore the</span>
+			<span class="ecomment">--</span><span class="ecomment"> hash function is a constant.)</span>
+
+	<a name="f_location"></a><a class="efeature" href="../net/file_url_short.html#f_location">location</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Full URL of resource.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_is_correct"></a><a class="efeature" href="../net/file_url_short.html#f_is_correct">is_correct</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is URL correct?</span>
+
+	<a name="f_default_port"></a><a class="efeature" href="../net/file_url_short.html#f_default_port">Default_port</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">0</span>
+			<span class="ecomment">--</span><span class="ecomment"> Default port number for service (Answer: 0)</span>
+			<span class="ecomment">--</span><span class="ecomment"> (The 'file' service does not use a port.)</span>
+
+	<a name="f_is_proxy_supported"></a><a class="efeature" href="../net/file_url_short.html#f_is_proxy_supported">Is_proxy_supported</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">False</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are proxy connections supported? (Answer: no)</span>
+
+	<a name="f_proxy_host_ok"></a><a class="efeature" href="../net/file_url_short.html#f_proxy_host_ok">proxy_host_ok</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is host name of proxy correct?</span>
+
+	<a name="f_is_password_accepted"></a><a class="efeature" href="../net/file_url_short.html#f_is_password_accepted">Is_password_accepted</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">False</span>
+			<span class="ecomment">--</span><span class="ecomment"> Can a password be set? (Answer: no)</span>
+
+	<a name="f_is_hashable"></a><a class="efeature" href="../net/file_url_short.html#f_is_hashable">Is_hashable</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">False</span>
+			<span class="ecomment">--</span><span class="ecomment"> Are objects of this type hashable? (Answer: no)</span>
+
+	<a name="f_has_username"></a><a class="efeature" href="../net/file_url_short.html#f_has_username">Has_username</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a> <span class="esymbol">=</span> <span class="ekeyword">False</span>
+			<span class="ecomment">--</span><span class="ecomment"> Can address contain a username? (Answer: no)</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_set_username"></a><a class="efeature" href="../net/file_url_short.html#f_set_username">set_username</a> <span class="esymbol">(</span><span class="elocal">un</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set username.</span>
+
+	<a name="f_set_password"></a><a class="efeature" href="../net/file_url_short.html#f_set_password">set_password</a> <span class="esymbol">(</span><span class="elocal">pw</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set password.</span>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2020, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/file_url_short.html">FILE_URL</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="file_url_chart.html">Chart</a>
+<a class="nav class" href="file_url_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="file_url"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

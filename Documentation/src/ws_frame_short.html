@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="WebSocket frame per RFC 6455 Section 5"/>
+<meta name="author" content="Larry Rix"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>ws_frame Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="ws_frame_chart.html">Chart</a>
+<a class="nav class" href="ws_frame_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="ws_frame"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;WebSocket frame per RFC 6455 Section 5&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Larry Rix&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../src/ws_frame_short.html">WS_FRAME</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../src/ws_frame_short.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/ws_frame_short.html#f_make_text">make_text</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/ws_frame_short.html#f_make_binary">make_binary</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/ws_frame_short.html#f_make_close">make_close</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/ws_frame_short.html#f_make_ping">make_ping</a><span class="esymbol">,</span>
+	<a class="efeature" href="../src/ws_frame_short.html#f_make_pong">make_pong</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_opcode"></a><a class="efeature" href="../src/ws_frame_short.html#f_opcode">opcode</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Frame opcode (0x0-0xF).</span>
+
+	<a name="f_payload"></a><a class="efeature" href="../src/ws_frame_short.html#f_payload">payload</a><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Frame payload data.</span>
+
+	<a name="f_is_fin"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_fin">is_fin</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this the final fragment?</span>
+
+	<a name="f_is_masked"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_masked">is_masked</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is payload masked?</span>
+
+	<a name="f_mask_key"></a><a class="efeature" href="../src/ws_frame_short.html#f_mask_key">mask_key</a><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> 4-byte masking key.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Derived Access</span>
+
+	<a name="f_payload_length"></a><a class="efeature" href="../src/ws_frame_short.html#f_payload_length">payload_length</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Length of payload.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">non_negative</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_text_payload"></a><a class="efeature" href="../src/ws_frame_short.html#f_text_payload">text_payload</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Payload as text (for text frames).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_text</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_opcode">opcode</a> <span class="esymbol">=</span> <a class="efeature" href="../src/ws_frame_short.html#f_opcode_text">Opcode_text</a> <a class="ekeyword" href="../base/boolean_short.html#f_disjuncted">or</a> <a class="efeature" href="../src/ws_frame_short.html#f_opcode">opcode</a> <span class="esymbol">=</span> <a class="efeature" href="../src/ws_frame_short.html#f_opcode_continuation">Opcode_continuation</a>
+
+	<a name="f_close_code"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_code">close_code</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close status code (for close frames).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_close</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_opcode">opcode</a> <span class="esymbol">=</span> <a class="efeature" href="../src/ws_frame_short.html#f_opcode_close">Opcode_close</a>
+			<span class="etag">has_code</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_payload">payload</a><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">2</span>
+
+	<a name="f_close_reason"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_reason">close_reason</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Close reason (for close frames).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">is_close</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_opcode">opcode</a> <span class="esymbol">=</span> <a class="efeature" href="../src/ws_frame_short.html#f_opcode_close">Opcode_close</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status</span>
+
+	<a name="f_is_control"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_control">is_control</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a control frame?</span>
+
+	<a name="f_is_text"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_text">is_text</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a text data frame?</span>
+
+	<a name="f_is_binary"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_binary">is_binary</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a binary data frame?</span>
+
+	<a name="f_is_close"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_close">is_close</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a close frame?</span>
+
+	<a name="f_is_ping"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_ping">is_ping</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a ping frame?</span>
+
+	<a name="f_is_pong"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_pong">is_pong</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a pong frame?</span>
+
+	<a name="f_is_continuation"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_continuation">is_continuation</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is this a continuation frame?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Modification</span>
+
+	<a name="f_set_mask"></a><a class="efeature" href="../src/ws_frame_short.html#f_set_mask">set_mask</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set masking key and enable masking.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">key_not_void</span><span class="esymbol">:</span> <span class="elocal">a_key</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">key_length</span><span class="esymbol">:</span> <span class="elocal">a_key</span><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">4</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">masked</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_is_masked">is_masked</a>
+			<span class="etag">key_set</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_mask_key">mask_key</a> <span class="esymbol">=</span> <span class="elocal">a_key</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Encoding</span>
+
+	<a name="f_to_bytes"></a><a class="efeature" href="../src/ws_frame_short.html#f_to_bytes">to_bytes</a><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Encode frame to wire format.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Validation</span>
+
+	<a name="f_is_valid_opcode"></a><a class="efeature" href="../src/ws_frame_short.html#f_is_valid_opcode">is_valid_opcode</a> <span class="esymbol">(</span><span class="elocal">a_opcode</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is opcode valid per RFC 6455?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Opcodes (RFC 6455 Section 5.2)</span>
+
+	<a name="f_opcode_continuation"></a><a class="efeature" href="../src/ws_frame_short.html#f_opcode_continuation">Opcode_continuation</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">0</span>
+
+	<a name="f_opcode_text"></a><a class="efeature" href="../src/ws_frame_short.html#f_opcode_text">Opcode_text</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1</span>
+
+	<a name="f_opcode_binary"></a><a class="efeature" href="../src/ws_frame_short.html#f_opcode_binary">Opcode_binary</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">2</span>
+
+	<a name="f_opcode_close"></a><a class="efeature" href="../src/ws_frame_short.html#f_opcode_close">Opcode_close</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">8</span>
+
+	<a name="f_opcode_ping"></a><a class="efeature" href="../src/ws_frame_short.html#f_opcode_ping">Opcode_ping</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">9</span>
+
+	<a name="f_opcode_pong"></a><a class="efeature" href="../src/ws_frame_short.html#f_opcode_pong">Opcode_pong</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">10</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Close Codes (RFC 6455 Section 7.4.1)</span>
+
+	<a name="f_close_normal"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_normal">Close_normal</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1000</span>
+
+	<a name="f_close_going_away"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_going_away">Close_going_away</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1001</span>
+
+	<a name="f_close_protocol_error"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_protocol_error">Close_protocol_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1002</span>
+
+	<a name="f_close_unsupported_data"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_unsupported_data">Close_unsupported_data</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1003</span>
+
+	<a name="f_close_invalid_payload"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_invalid_payload">Close_invalid_payload</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1007</span>
+
+	<a name="f_close_policy_violation"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_policy_violation">Close_policy_violation</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1008</span>
+
+	<a name="f_close_message_too_big"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_message_too_big">Close_message_too_big</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1009</span>
+
+	<a name="f_close_server_error"></a><a class="efeature" href="../src/ws_frame_short.html#f_close_server_error">Close_server_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">1011</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">payload_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_payload">payload</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">mask_key_not_void</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_mask_key">mask_key</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">mask_key_length</span><span class="esymbol">:</span> <a class="efeature" href="../src/ws_frame_short.html#f_mask_key">mask_key</a><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">4</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../src/ws_frame_short.html">WS_FRAME</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="ws_frame_chart.html">Chart</a>
+<a class="nav class" href="ws_frame_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="ws_frame"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

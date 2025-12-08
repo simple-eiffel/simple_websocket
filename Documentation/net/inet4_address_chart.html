@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Objects that represents an IP V4 address."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>inet4_address Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="inet4_address_links.html">Relations</a>
+<a class="nav class" href="inet4_address_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="inet4_address"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../net/inet4_address_chart.html">INET4_ADDRESS</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <span class="necluster">network</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Objects that represents an IP V4 address.&quot;</span>
+	<span class="eitag">create</span><span class="esymbol">:</span> <a class="efeature" href="../net/inet4_address_short.html#f_make_from_host_and_address">make_from_host_and_address</a><span class="esymbol">,</span> <a class="efeature" href="../net/inet4_address_short.html#f_make_from_host_and_pointer">make_from_host_and_pointer</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../net/inet_address_chart.html">INET_ADDRESS</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`family' was declared in INET_ADDRESS"><a class="efeature" href="../net/inet_address_short.html#f_family">family</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`host_address' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_host_address">host_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`host_name' was declared in INET_ADDRESS"><a class="efeature" href="../net/inet_address_short.html#f_host_name">host_name</a><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_chart.html">READABLE_STRING_8</a></span>
+	<span title="`inaddrsz' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_inaddrsz">Inaddrsz</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`ipv4' was declared in INET_ADDRESS"><a class="efeature" href="../net/inet_address_short.html#f_ipv4">Ipv4</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`ipv6' was declared in INET_ADDRESS"><a class="efeature" href="../net/inet_address_short.html#f_ipv6">Ipv6</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`is_any_local_address' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_any_local_address">is_any_local_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_equivalent' was declared in INET_ADDRESS"><a class="efeature" href="../net/inet_address_short.html#f_is_equivalent">is_equivalent</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">]</span> <a class="eclass" href="../net/inet4_address_chart.html">INET4_ADDRESS</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_link_local_address' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_link_local_address">is_link_local_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_loopback_address' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_loopback_address">is_loopback_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_mc_global' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_mc_global">is_mc_global</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_mc_link_local' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_mc_link_local">is_mc_link_local</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_mc_node_local' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_mc_node_local">is_mc_node_local</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_mc_org_local' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_mc_org_local">is_mc_org_local</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_mc_site_local' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_mc_site_local">is_mc_site_local</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_multicast_address' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_multicast_address">is_multicast_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_site_local_address' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_is_site_local_address">is_site_local_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`raw_address' is declared in `Current'"><a class="efeature" href="../net/inet4_address_short.html#f_raw_address">raw_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/array_chart.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_chart.html">NATURAL_8</a><span class="esymbol">]</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="inet4_address_links.html">Relations</a>
+<a class="nav class" href="inet4_address_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="inet4_address"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="A server for a socket."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2013, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>server Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="server_links.html">Relations</a>
+<a class="nav class" href="server_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="server"></span>
+</div></form><pre><span class="ekeyword">deferred</span> <span class="ekeyword">class</span>
+	<a class="eclass" href="../net/server_chart.html">SERVER</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <span class="necluster">abstract</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A server for a socket.&quot;</span>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../net/socket_resources_chart.html">SOCKET_RESOURCES</a>
+
+<span class="ekeyword">Queries</span>
+	<span title="`address_in_use' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_address_in_use">address_in_use</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`address_not_readable' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_address_not_readable">address_not_readable</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`already_bound' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_already_bound">already_bound</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`bad_socket_handle' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_bad_socket_handle">bad_socket_handle</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`c_msgdontroute' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_c_msgdontroute">c_msgdontroute</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`c_oobmsg' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_c_oobmsg">c_oobmsg</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`c_peekmsg' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_c_peekmsg">c_peekmsg</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`connect_in_progress' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_connect_in_progress">connect_in_progress</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`connection_refused' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_connection_refused">connection_refused</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`dtable_full' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_dtable_full">dtable_full</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`error' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_error">error</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`error_number' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_error_number">error_number</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`expired_socket' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_expired_socket">expired_socket</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`in' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_in">in</a><span class="esymbol">:</span> <a class="eclass" href="../net/socket_chart.html">SOCKET</a></span>
+	<span title="`invalid_address' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_invalid_address">invalid_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`invalid_socket_handle' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_invalid_socket_handle">invalid_socket_handle</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`network' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_network">network</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`no_buffers' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_no_buffers">no_buffers</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`no_permission' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_no_permission">no_permission</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`not_connected' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_not_connected">not_connected</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`outflow' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_outflow">outflow</a><span class="esymbol">:</span> <span class="esymbol">[</span><span class="ekeyword">detachable</span> <span class="ekeyword">like</span> <a class="efeature" href="../net/server_short.html#f_in">in</a><span class="esymbol">]</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../net/socket_chart.html">SOCKET</a></span>
+	<span title="`protected_address' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_protected_address">protected_address</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`protocol_not_supported' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_protocol_not_supported">protocol_not_supported</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`queued' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_queued">queued</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`received' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_received">received</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/any_chart.html">ANY</a></span>
+	<span title="`socket_family_not_supported' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_socket_family_not_supported">socket_family_not_supported</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`socket_in_use' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_socket_in_use">socket_in_use</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`socket_ok' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_socket_ok">socket_ok</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`socket_would_block' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_socket_would_block">socket_would_block</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`zero_option' was declared in SOCKET_RESOURCES"><a class="efeature" href="../net/socket_resources_short.html#f_zero_option">zero_option</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`cleanup' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_cleanup">cleanup</a></span>
+	<span title="`close' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_close">close</a></span>
+	<span title="`execute' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_execute">execute</a></span>
+	<span title="`process_message' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_process_message">process_message</a></span>
+	<span title="`receive' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_receive">receive</a></span>
+	<span title="`resend' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_resend">resend</a> <span class="esymbol">(</span><span class="elocal">msg</span><span class="esymbol">:</span> <a class="eclass" href="../base/any_chart.html">ANY</a><span class="esymbol">)</span></span>
+	<span title="`respond' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_respond">respond</a></span>
+	<span title="`set_queued' is declared in `Current'"><a class="efeature" href="../net/server_short.html#f_set_queued">set_queued</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="server_links.html">Relations</a>
+<a class="nav class" href="server_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="server"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

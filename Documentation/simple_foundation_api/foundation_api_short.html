@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="TTUnified API facade for foundation-level operations.  TTProvides single entry point to: TT- Base64 encoding/decoding (simple_base64) TT- Cryptographic hashing (simple_hash) TT- UUID generation (simple_uuid) TT- JSON parsing/building (simple_json) TT- CSV parsing/generation (simple_csv) TT- Markdown to HTML conversion (simple_markdown) TT- Data validation (simple_validation) TT- Process execution (simple_process) TT- Random data generation (simple_randomizer) TT- HTMX element generation (simple_htmx) TT- Structured logging (simple_logger) TT- XML parsing/building (simple_xml) TT- Date/time operations (simple_datetime) TT- Regular expressions (simple_regex)  TTUsage: TTTcreate foundation.make TTTfoundation.sha256 (data) TTTfoundation.base64_encode (Hello) TTTfoundation.new_uuid TTTfoundation.parse_json ({key: value}) TTTfoundation.parse_csv (a,b,c 1,2,3) TTTfoundation.markdown_to_html (# Hello) TTTfoundation.new_validator.required.email.validate (test@test.com) TTTfoundation.random_integer_in_range (1, 100) TTTfoundation.log.info (Application started) TTTfoundation.new_logger.info_fields (Event, << [user_id, 123] >>) TTTfoundation.parse_xml (<root><item>value</item></root>).text_at (root/item) TTTfoundation.new_date (2025, 12, 7).to_iso8601 TTTfoundation.today.plus_days (7) TTTfoundation.new_duration (0, 2, 30, 0).to_human TTTfoundation.regex_match (\d+, abc123).value -- 123 TTTfoundation.regex_replace_all (\s+, a  b  c,  ) -- a b c TTTfoundation.is_valid_email_pattern (user@example.com) -- True"/>
+<meta name="author" content="Larry Rix"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>foundation_api Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="foundation_api_chart.html">Chart</a>
+<a class="nav class" href="foundation_api_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="foundation_api"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">		Unified API facade for foundation-level operations.</span>
+		
+		<span class="estring">		Provides single entry point to:</span>
+		<span class="estring">		- Base64 encoding/decoding (simple_base64)</span>
+		<span class="estring">		- Cryptographic hashing (simple_hash)</span>
+		<span class="estring">		- UUID generation (simple_uuid)</span>
+		<span class="estring">		- JSON parsing/building (simple_json)</span>
+		<span class="estring">		- CSV parsing/generation (simple_csv)</span>
+		<span class="estring">		- Markdown to HTML conversion (simple_markdown)</span>
+		<span class="estring">		- Data validation (simple_validation)</span>
+		<span class="estring">		- Process execution (simple_process)</span>
+		<span class="estring">		- Random data generation (simple_randomizer)</span>
+		<span class="estring">		- HTMX element generation (simple_htmx)</span>
+		<span class="estring">		- Structured logging (simple_logger)</span>
+		<span class="estring">		- XML parsing/building (simple_xml)</span>
+		<span class="estring">		- Date/time operations (simple_datetime)</span>
+		<span class="estring">		- Regular expressions (simple_regex)</span>
+		
+		<span class="estring">		Usage:</span>
+		<span class="estring">			create foundation.make</span>
+		<span class="estring">			foundation.sha256 (&quot;data&quot;)</span>
+		<span class="estring">			foundation.base64_encode (&quot;Hello&quot;)</span>
+		<span class="estring">			foundation.new_uuid</span>
+		<span class="estring">			foundation.parse_json (&quot;{%&quot;key%&quot;: %&quot;value%&quot;}&quot;)</span>
+		<span class="estring">			foundation.parse_csv (&quot;a,b,c%N1,2,3&quot;)</span>
+		<span class="estring">			foundation.markdown_to_html (&quot;# Hello&quot;)</span>
+		<span class="estring">			foundation.new_validator.required.email.validate (&quot;</span><a class="estring" href="mailto:test@test.com")">test@test.com&quot;)</a>
+		<span class="estring">			foundation.random_integer_in_range (1, 100)</span>
+		<span class="estring">			foundation.log.info (&quot;Application started&quot;)</span>
+		<span class="estring">			foundation.new_logger.info_fields (&quot;Event&quot;, &lt;&lt; [&quot;user_id&quot;, &quot;123&quot;] &gt;&gt;)</span>
+		<span class="estring">			foundation.parse_xml (&quot;&lt;root&gt;&lt;item&gt;value&lt;/item&gt;&lt;/root&gt;&quot;).text_at (&quot;root/item&quot;)</span>
+		<span class="estring">			foundation.new_date (2025, 12, 7).to_iso8601</span>
+		<span class="estring">			foundation.today.plus_days (7)</span>
+		<span class="estring">			foundation.new_duration (0, 2, 30, 0).to_human</span>
+		<span class="estring">			foundation.regex_match (&quot;\d+&quot;, &quot;abc123&quot;).value -- &quot;123&quot;</span>
+		<span class="estring">			foundation.regex_replace_all (&quot;\s+&quot;, &quot;a &nbsp;b &nbsp;c&quot;, &quot; &quot;) -- &quot;a b c&quot;</span>
+		<span class="estring">			foundation.is_valid_email_pattern (&quot;</span><a class="estring" href="mailto:user@example.com")">user@example.com&quot;)</a><span class="estring"> -- True</span>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;Larry Rix&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../simple_foundation_api/foundation_api_short.html">FOUNDATION_API</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Base64 Encoding</span>
+
+	<a name="f_base64_encode"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_base64_encode">base64_encode</a> <span class="esymbol">(</span><span class="elocal">a_input</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Encode </span><span class="equoted">a_input</span><span class="ecomment"> to Base64.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">input_not_void</span><span class="esymbol">:</span> <span class="elocal">a_input</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_base64_decode"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_base64_decode">base64_decode</a> <span class="esymbol">(</span><span class="elocal">a_encoded</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Decode Base64 </span><span class="equoted">a_encoded</span><span class="ecomment"> to original string.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">encoded_not_void</span><span class="esymbol">:</span> <span class="elocal">a_encoded</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_base64_url_encode"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_base64_url_encode">base64_url_encode</a> <span class="esymbol">(</span><span class="elocal">a_input</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Encode </span><span class="equoted">a_input</span><span class="ecomment"> to URL-safe Base64.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">input_not_void</span><span class="esymbol">:</span> <span class="elocal">a_input</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">url_safe</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'+'</span><span class="esymbol">)</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'/'</span><span class="esymbol">)</span>
+
+	<a name="f_base64_url_decode"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_base64_url_decode">base64_url_decode</a> <span class="esymbol">(</span><span class="elocal">a_encoded</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Decode URL-safe Base64 </span><span class="equoted">a_encoded</span><span class="ecomment"> to original string.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">encoded_not_void</span><span class="esymbol">:</span> <span class="elocal">a_encoded</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_base64_encode_bytes"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_base64_encode_bytes">base64_encode_bytes</a> <span class="esymbol">(</span><span class="elocal">a_bytes</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Encode byte array </span><span class="equoted">a_bytes</span><span class="ecomment"> to Base64 string.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">bytes_not_void</span><span class="esymbol">:</span> <span class="elocal">a_bytes</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Hashing: SHA-256</span>
+
+	<a name="f_sha256"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_sha256">sha256</a> <span class="esymbol">(</span><span class="elocal">a_input</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Compute SHA-256 hash of </span><span class="equoted">a_input</span><span class="ecomment"> as 64-char hex string.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">input_not_void</span><span class="esymbol">:</span> <span class="elocal">a_input</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">64</span>
+			<span class="etag">lowercase_hex</span><span class="esymbol">:</span> <span class="ekeyword">across</span>
+					<span class="ekeyword">Result</span> <span class="ekeyword">as</span> c
+				<span class="ekeyword">all</span>
+					<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_is_lower">is_lower</a> <a class="ekeyword" href="../base/boolean_short.html#f_disjuncted">or</a> <span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_is_digit">is_digit</a>
+				<span class="ekeyword">end</span>
+
+	<a name="f_sha256_bytes"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_sha256_bytes">sha256_bytes</a> <span class="esymbol">(</span><span class="elocal">a_input</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Compute SHA-256 hash of </span><span class="equoted">a_input</span><span class="ecomment"> as 32 bytes.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">input_not_void</span><span class="esymbol">:</span> <span class="elocal">a_input</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">32</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Hashing: SHA-1</span>
+
+	<a name="f_sha1"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_sha1">sha1</a> <span class="esymbol">(</span><span class="elocal">a_input</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Compute SHA-1 hash of </span><span class="equoted">a_input</span><span class="ecomment"> as 40-char hex string.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Note: SHA-1 is deprecated for security; use SHA-256 for new applications.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">input_not_void</span><span class="esymbol">:</span> <span class="elocal">a_input</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">40</span>
+			<span class="etag">lowercase_hex</span><span class="esymbol">:</span> <span class="ekeyword">across</span>
+					<span class="ekeyword">Result</span> <span class="ekeyword">as</span> c
+				<span class="ekeyword">all</span>
+					<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_is_lower">is_lower</a> <a class="ekeyword" href="../base/boolean_short.html#f_disjuncted">or</a> <span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_is_digit">is_digit</a>
+				<span class="ekeyword">end</span>
+
+	<a name="f_sha1_bytes"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_sha1_bytes">sha1_bytes</a> <span class="esymbol">(</span><span class="elocal">a_input</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Compute SHA-1 hash of </span><span class="equoted">a_input</span><span class="ecomment"> as 20 bytes.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">input_not_void</span><span class="esymbol">:</span> <span class="elocal">a_input</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">20</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Hashing: MD5</span>
+
+	<a name="f_md5"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_md5">md5</a> <span class="esymbol">(</span><span class="elocal">a_input</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Compute MD5 hash of </span><span class="equoted">a_input</span><span class="ecomment"> as 32-char hex string.</span>
+			<span class="ecomment">--</span><span class="ecomment"> WARNING: MD5 is cryptographically broken. Use only for checksums.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">input_not_void</span><span class="esymbol">:</span> <span class="elocal">a_input</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">32</span>
+			<span class="etag">lowercase_hex</span><span class="esymbol">:</span> <span class="ekeyword">across</span>
+					<span class="ekeyword">Result</span> <span class="ekeyword">as</span> c
+				<span class="ekeyword">all</span>
+					<span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_is_lower">is_lower</a> <a class="ekeyword" href="../base/boolean_short.html#f_disjuncted">or</a> <span class="elocal">c</span><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_item">item</a><span class="edot">.</span><a class="efeature" href="../base/character_8_ref_short.html#f_is_digit">is_digit</a>
+				<span class="ekeyword">end</span>
+
+	<a name="f_md5_bytes"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_md5_bytes">md5_bytes</a> <span class="esymbol">(</span><span class="elocal">a_input</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Compute MD5 hash of </span><span class="equoted">a_input</span><span class="ecomment"> as 16 bytes.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">input_not_void</span><span class="esymbol">:</span> <span class="elocal">a_input</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">16</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Hashing: HMAC</span>
+
+	<a name="f_hmac_sha256"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_hmac_sha256">hmac_sha256</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">,</span> <span class="elocal">a_message</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Compute HMAC-SHA256 of </span><span class="equoted">a_message</span><span class="ecomment"> using </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Returns 64-char hex string.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">key_not_void</span><span class="esymbol">:</span> <span class="elocal">a_key</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">message_not_void</span><span class="esymbol">:</span> <span class="elocal">a_message</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">64</span>
+
+	<a name="f_hmac_sha256_bytes"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_hmac_sha256_bytes">hmac_sha256_bytes</a> <span class="esymbol">(</span><span class="elocal">a_key</span><span class="esymbol">,</span> <span class="elocal">a_message</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Compute HMAC-SHA256 of </span><span class="equoted">a_message</span><span class="ecomment"> using </span><span class="equoted">a_key</span><span class="ecomment">.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Returns 32 bytes.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">key_not_void</span><span class="esymbol">:</span> <span class="elocal">a_key</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">message_not_void</span><span class="esymbol">:</span> <span class="elocal">a_message</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">32</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Hashing: Security</span>
+
+	<a name="f_secure_compare"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_secure_compare">secure_compare</a> <span class="esymbol">(</span><span class="elocal">a_str1</span><span class="esymbol">,</span> <span class="elocal">a_str2</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Compare two strings in constant time to prevent timing attacks.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Use for comparing hashes, tokens, or secrets.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">str1_not_void</span><span class="esymbol">:</span> <span class="elocal">a_str1</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">str2_not_void</span><span class="esymbol">:</span> <span class="elocal">a_str2</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> UUID Generation</span>
+
+	<a name="f_new_uuid"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_uuid">new_uuid</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Generate new random UUID v4 as string (36 chars with hyphens).</span>
+			<span class="ecomment">--</span><span class="ecomment"> Format: xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">36</span>
+			<span class="etag">has_hyphens</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_occurrences">occurrences</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'-'</span><span class="esymbol">)</span> <span class="esymbol">=</span> <span class="enumber">4</span>
+
+	<a name="f_new_uuid_compact"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_uuid_compact">new_uuid_compact</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Generate new random UUID v4 without hyphens (32 chars).</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="enumber">32</span>
+			<span class="etag">no_hyphens</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_has">has</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="echar">'-'</span><span class="esymbol">)</span>
+
+	<a name="f_is_valid_uuid"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_uuid">is_valid_uuid</a> <span class="esymbol">(</span><span class="elocal">a_string</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_string</span><span class="ecomment"> a valid UUID format?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">string_not_void</span><span class="esymbol">:</span> <span class="elocal">a_string</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> JSON Parsing</span>
+
+	<a name="f_parse_json"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_parse_json">parse_json</a> <span class="esymbol">(</span><span class="elocal">a_json_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <span class="neclass">SIMPLE_JSON_VALUE</span>
+			<span class="ecomment">--</span><span class="ecomment"> Parse </span><span class="equoted">a_json_text</span><span class="ecomment"> and return JSON value.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Returns Void on parse error; check </span><span class="ecomment">`</span><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_json_has_errors">json_has_errors</a><span class="ecomment">`</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_json_text</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_is_valid_json"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_json">is_valid_json</a> <span class="esymbol">(</span><span class="elocal">a_json_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_json_text</span><span class="ecomment"> valid JSON?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_json_text</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_json_has_errors"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_json_has_errors">json_has_errors</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Did last JSON parse have errors?</span>
+
+	<a name="f_json_errors"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_json_errors">json_errors</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Errors from last JSON parse.</span>
+
+	<a name="f_new_json_object"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_json_object">new_json_object</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_JSON_OBJECT</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create new JSON object builder.</span>
+
+	<a name="f_new_json_array"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_json_array">new_json_array</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_JSON_ARRAY</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create new JSON array builder.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> CSV Parsing</span>
+
+	<a name="f_parse_csv"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_parse_csv">parse_csv</a> <span class="esymbol">(</span><span class="elocal">a_csv_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Parse </span><span class="equoted">a_csv_text</span><span class="ecomment"> into CSV data.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Access data via </span><span class="ecomment">`</span><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_field">csv_field</a><span class="ecomment">`</span><span class="ecomment">, </span><span class="ecomment">`</span><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_row_count">csv_row_count</a><span class="ecomment">`</span><span class="ecomment">, etc.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_not_void</span><span class="esymbol">:</span> <span class="elocal">a_csv_text</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_parse_csv_with_header"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_parse_csv_with_header">parse_csv_with_header</a> <span class="esymbol">(</span><span class="elocal">a_csv_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Parse </span><span class="equoted">a_csv_text</span><span class="ecomment"> with first row as header.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_not_void</span><span class="esymbol">:</span> <span class="elocal">a_csv_text</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_csv_row_count"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_row_count">csv_row_count</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of data rows in parsed CSV.</span>
+
+	<a name="f_csv_column_count"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_column_count">csv_column_count</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of columns in parsed CSV.</span>
+
+	<a name="f_csv_field"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_field">csv_field</a> <span class="esymbol">(</span><span class="elocal">a_row</span><span class="esymbol">,</span> <span class="elocal">a_column</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Get CSV field at </span><span class="equoted">a_row</span><span class="ecomment">, </span><span class="equoted">a_column</span><span class="ecomment"> (1-based).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_row</span><span class="esymbol">:</span> <span class="elocal">a_row</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_row</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_row_count">csv_row_count</a>
+			<span class="etag">valid_column</span><span class="esymbol">:</span> <span class="elocal">a_column</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_column</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_column_count">csv_column_count</a>
+
+	<a name="f_csv_to_string"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_to_string">csv_to_string</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Generate CSV string from current data.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Markdown Conversion</span>
+
+	<a name="f_markdown_to_html"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_markdown_to_html">markdown_to_html</a> <span class="esymbol">(</span><span class="elocal">a_markdown</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Convert </span><span class="equoted">a_markdown</span><span class="ecomment"> to HTML.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">markdown_not_void</span><span class="esymbol">:</span> <span class="elocal">a_markdown</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_markdown_to_html_fragment"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_markdown_to_html_fragment">markdown_to_html_fragment</a> <span class="esymbol">(</span><span class="elocal">a_markdown</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Convert </span><span class="equoted">a_markdown</span><span class="ecomment"> inline elements only (no block wrapping).</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">markdown_not_void</span><span class="esymbol">:</span> <span class="elocal">a_markdown</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_markdown_table_of_contents"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_markdown_table_of_contents">markdown_table_of_contents</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Generate HTML table of contents from last markdown conversion.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Validation</span>
+
+	<a name="f_new_validator"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_validator">new_validator</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_VALIDATOR</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create new validator with fluent API.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Usage: new_validator.required.email.validate (&quot;</span><a class="ecomment" href="mailto:test@test.com")">test@test.com&quot;)</a>
+
+	<a name="f_is_valid_email"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_email">is_valid_email</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_value</span><span class="ecomment"> a valid email address?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">value_not_void</span><span class="esymbol">:</span> <span class="elocal">a_value</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_is_valid_url"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_url">is_valid_url</a> <span class="esymbol">(</span><span class="elocal">a_value</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_value</span><span class="ecomment"> a valid URL?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">value_not_void</span><span class="esymbol">:</span> <span class="elocal">a_value</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Process Execution</span>
+
+	<a name="f_execute_command"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_execute_command">execute_command</a> <span class="esymbol">(</span><span class="elocal">a_command</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute shell </span><span class="equoted">a_command</span><span class="ecomment"> and return output.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">command_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_command</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_execute_command_in_directory"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_execute_command_in_directory">execute_command_in_directory</a> <span class="esymbol">(</span><span class="elocal">a_command</span><span class="esymbol">,</span> <span class="elocal">a_directory</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Execute shell </span><span class="equoted">a_command</span><span class="ecomment"> in </span><span class="equoted">a_directory</span><span class="ecomment"> and return output.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">command_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_command</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+			<span class="etag">directory_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_directory</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_has_file_in_path"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_has_file_in_path">has_file_in_path</a> <span class="esymbol">(</span><span class="elocal">a_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_name</span><span class="ecomment"> exist in system PATH?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Random Generation</span>
+
+	<a name="f_random_integer"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random_integer">random_integer</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> A random integer.</span>
+
+	<a name="f_random_integer_in_range"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random_integer_in_range">random_integer_in_range</a> <span class="esymbol">(</span><span class="elocal">a_lower</span><span class="esymbol">,</span> <span class="elocal">a_upper</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> A random integer between </span><span class="equoted">a_lower</span><span class="ecomment"> and </span><span class="equoted">a_upper</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_range</span><span class="esymbol">:</span> <span class="elocal">a_lower</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="elocal">a_upper</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">in_range</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="elocal">a_lower</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="ekeyword">Result</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="elocal">a_upper</span>
+
+	<a name="f_random_real"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random_real">random_real</a><span class="esymbol">:</span> <a class="eclass" href="../base/real_64_short.html">REAL_64</a>
+			<span class="ecomment">--</span><span class="ecomment"> A random real between 0 and 1.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">in_range</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span><span class="edot">.</span><a class="efeature" href="../base/integer_32_short.html#f_to_double">to_double</a> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="ekeyword">Result</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="enumber">1</span><span class="edot">.</span><a class="efeature" href="../base/integer_32_short.html#f_to_double">to_double</a>
+
+	<a name="f_random_boolean"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random_boolean">random_boolean</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> A random boolean (approximately 50/50).</span>
+
+	<a name="f_random_word"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random_word">random_word</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> A random pronounceable word.</span>
+
+	<a name="f_random_sentence"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random_sentence">random_sentence</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> A random sentence.</span>
+
+	<a name="f_random_alphanumeric_string"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random_alphanumeric_string">random_alphanumeric_string</a> <span class="esymbol">(</span><span class="elocal">a_length</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> A random alphanumeric string of </span><span class="equoted">a_length</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">positive_length</span><span class="esymbol">:</span> <span class="elocal">a_length</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater">&gt;</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="elocal">a_length</span>
+
+	<a name="f_random_uuid_string"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random_uuid_string">random_uuid_string</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> A random UUID as string.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Logging</span>
+
+	<a name="f_new_logger"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_logger">new_logger</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_LOGGER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create new logger instance.</span>
+
+	<a name="f_new_logger_with_level"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_logger_with_level">new_logger_with_level</a> <span class="esymbol">(</span><span class="elocal">a_level</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_LOGGER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create new logger with specified level.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_level</span><span class="esymbol">:</span> <span class="elocal">a_level</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="esymbol">{</span><span class="neclass">SIMPLE_LOGGER</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">level_debug</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_level</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="esymbol">{</span><span class="neclass">SIMPLE_LOGGER</span><span class="esymbol">}</span><span class="edot">.</span><span class="nefeature">level_fatal</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">level_set</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">level</span> <span class="esymbol">=</span> <span class="elocal">a_level</span>
+
+	<a name="f_new_logger_to_file"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_logger_to_file">new_logger_to_file</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_LOGGER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create new logger outputting to file.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_path</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">file_output</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">is_file_output</span>
+
+	<a name="f_log"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_log">log</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_LOGGER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Shared logger instance for simple logging needs.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> XML Processing</span>
+
+	<a name="f_parse_xml"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_parse_xml">parse_xml</a> <span class="esymbol">(</span><span class="elocal">a_xml</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_XML_DOCUMENT</span>
+			<span class="ecomment">--</span><span class="ecomment"> Parse </span><span class="equoted">a_xml</span><span class="ecomment"> string and return document.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">xml_not_void</span><span class="esymbol">:</span> <span class="elocal">a_xml</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_parse_xml_file"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_parse_xml_file">parse_xml_file</a> <span class="esymbol">(</span><span class="elocal">a_path</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_XML_DOCUMENT</span>
+			<span class="ecomment">--</span><span class="ecomment"> Parse XML file at </span><span class="equoted">a_path</span><span class="ecomment"> and return document.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">path_not_void</span><span class="esymbol">:</span> <span class="elocal">a_path</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_build_xml"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_build_xml">build_xml</a> <span class="esymbol">(</span><span class="elocal">a_root_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_XML_BUILDER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create XML builder with root element named </span><span class="equoted">a_root_name</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_root_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">name_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_root_name</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_new_xml_document"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_xml_document">new_xml_document</a> <span class="esymbol">(</span><span class="elocal">a_root_name</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_XML_DOCUMENT</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create empty XML document with root named </span><span class="equoted">a_root_name</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">name_not_void</span><span class="esymbol">:</span> <span class="elocal">a_root_name</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">name_not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_root_name</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">is_valid</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><span class="nefeature">is_valid</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> DateTime Operations</span>
+
+	<a name="f_new_date"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_date">new_date</a> <span class="esymbol">(</span><span class="elocal">a_year</span><span class="esymbol">,</span> <span class="elocal">a_month</span><span class="esymbol">,</span> <span class="elocal">a_day</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_DATE</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create date from year, month, day.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_month</span><span class="esymbol">:</span> <span class="elocal">a_month</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_month</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="enumber">12</span>
+			<span class="etag">valid_day</span><span class="esymbol">:</span> <span class="elocal">a_day</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_day</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="enumber">31</span>
+
+	<a name="f_new_time"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_time">new_time</a> <span class="esymbol">(</span><span class="elocal">a_hour</span><span class="esymbol">,</span> <span class="elocal">a_minute</span><span class="esymbol">,</span> <span class="elocal">a_second</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_TIME</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create time from hour, minute, second.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_hour</span><span class="esymbol">:</span> <span class="elocal">a_hour</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_hour</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="enumber">23</span>
+			<span class="etag">valid_minute</span><span class="esymbol">:</span> <span class="elocal">a_minute</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_minute</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="enumber">59</span>
+			<span class="etag">valid_second</span><span class="esymbol">:</span> <span class="elocal">a_second</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">a_second</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="enumber">59</span>
+
+	<a name="f_new_datetime"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_datetime">new_datetime</a> <span class="esymbol">(</span><span class="elocal">a_year</span><span class="esymbol">,</span> <span class="elocal">a_month</span><span class="esymbol">,</span> <span class="elocal">a_day</span><span class="esymbol">,</span> <span class="elocal">a_hour</span><span class="esymbol">,</span> <span class="elocal">a_minute</span><span class="esymbol">,</span> <span class="elocal">a_second</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_DATE_TIME</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create datetime from components.</span>
+
+	<a name="f_new_duration"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_duration">new_duration</a> <span class="esymbol">(</span><span class="elocal">a_days</span><span class="esymbol">,</span> <span class="elocal">a_hours</span><span class="esymbol">,</span> <span class="elocal">a_minutes</span><span class="esymbol">,</span> <span class="elocal">a_seconds</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_DURATION</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create duration from days, hours, minutes, seconds.</span>
+
+	<a name="f_new_duration_seconds"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_duration_seconds">new_duration_seconds</a> <span class="esymbol">(</span><span class="elocal">a_seconds</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_64_short.html">INTEGER_64</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_DURATION</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create duration from total seconds.</span>
+
+	<a name="f_new_date_range"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_date_range">new_date_range</a> <span class="esymbol">(</span><span class="elocal">a_start</span><span class="esymbol">,</span> <span class="elocal">a_end</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_DATE</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_DATE_RANGE</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create date range from start to end.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">start_before_end</span><span class="esymbol">:</span> <span class="elocal">a_start</span><span class="edot">.</span><span class="nefeature">is_before</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_end</span><span class="esymbol">)</span> <a class="ekeyword" href="../base/boolean_short.html#f_disjuncted">or</a> <span class="elocal">a_start</span><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_end</span><span class="esymbol">)</span>
+
+	<a name="f_new_age"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_age">new_age</a> <span class="esymbol">(</span><span class="elocal">a_years</span><span class="esymbol">,</span> <span class="elocal">a_months</span><span class="esymbol">,</span> <span class="elocal">a_days</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_AGE</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create age from years, months, days.</span>
+
+	<a name="f_age_from_dates"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_age_from_dates">age_from_dates</a> <span class="esymbol">(</span><span class="elocal">a_birth_date</span><span class="esymbol">,</span> <span class="elocal">a_reference_date</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_DATE</span><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_AGE</span>
+			<span class="ecomment">--</span><span class="ecomment"> Calculate age from birth date to reference date.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">birth_before_reference</span><span class="esymbol">:</span> <span class="elocal">a_birth_date</span><span class="edot">.</span><span class="nefeature">is_before</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_reference_date</span><span class="esymbol">)</span> <a class="ekeyword" href="../base/boolean_short.html#f_disjuncted">or</a> <span class="elocal">a_birth_date</span><span class="edot">.</span><span class="nefeature">is_equal</span><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">a_reference_date</span><span class="esymbol">)</span>
+
+	<a name="f_today"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_today">today</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_DATE</span>
+			<span class="ecomment">--</span><span class="ecomment"> Current date.</span>
+
+	<a name="f_now"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_now">now</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_TIME</span>
+			<span class="ecomment">--</span><span class="ecomment"> Current time.</span>
+
+	<a name="f_current_datetime"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_current_datetime">current_datetime</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_DATE_TIME</span>
+			<span class="ecomment">--</span><span class="ecomment"> Current date and time.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Regular Expressions: Matching</span>
+
+	<a name="f_regex_match"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_match">regex_match</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">,</span> <span class="elocal">a_subject</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_REGEX_MATCH</span>
+			<span class="ecomment">--</span><span class="ecomment"> Match </span><span class="equoted">a_pattern</span><span class="ecomment"> against </span><span class="equoted">a_subject</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">subject_attached</span><span class="esymbol">:</span> <span class="elocal">a_subject</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_regex_match_all"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_match_all">regex_match_all</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">,</span> <span class="elocal">a_subject</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_REGEX_MATCH_LIST</span>
+			<span class="ecomment">--</span><span class="ecomment"> Find all matches of </span><span class="equoted">a_pattern</span><span class="ecomment"> in </span><span class="equoted">a_subject</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">subject_attached</span><span class="esymbol">:</span> <span class="elocal">a_subject</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_regex_matches"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_matches">regex_matches</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">,</span> <span class="elocal">a_subject</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_subject</span><span class="ecomment"> contain a match for </span><span class="equoted">a_pattern</span><span class="ecomment">?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">subject_attached</span><span class="esymbol">:</span> <span class="elocal">a_subject</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_regex_first_match"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_first_match">regex_first_match</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">,</span> <span class="elocal">a_subject</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> First matching substring, or Void if no match.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">subject_attached</span><span class="esymbol">:</span> <span class="elocal">a_subject</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_regex_all_matches"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_all_matches">regex_all_matches</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">,</span> <span class="elocal">a_subject</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_32_short.html">STRING_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> All matching substrings.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">subject_attached</span><span class="esymbol">:</span> <span class="elocal">a_subject</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Regular Expressions: Replace</span>
+
+	<a name="f_regex_replace"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_replace">regex_replace</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">,</span> <span class="elocal">a_subject</span><span class="esymbol">,</span> <span class="elocal">a_replacement</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replace first match of </span><span class="equoted">a_pattern</span><span class="ecomment"> in </span><span class="equoted">a_subject</span><span class="ecomment"> with </span><span class="equoted">a_replacement</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">subject_attached</span><span class="esymbol">:</span> <span class="elocal">a_subject</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">replacement_attached</span><span class="esymbol">:</span> <span class="elocal">a_replacement</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_regex_replace_all"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_replace_all">regex_replace_all</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">,</span> <span class="elocal">a_subject</span><span class="esymbol">,</span> <span class="elocal">a_replacement</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Replace all matches of </span><span class="equoted">a_pattern</span><span class="ecomment"> in </span><span class="equoted">a_subject</span><span class="ecomment"> with </span><span class="equoted">a_replacement</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">subject_attached</span><span class="esymbol">:</span> <span class="elocal">a_subject</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">replacement_attached</span><span class="esymbol">:</span> <span class="elocal">a_replacement</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Regular Expressions: Split</span>
+
+	<a name="f_regex_split"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_split">regex_split</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">,</span> <span class="elocal">a_subject</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/arrayed_list_short.html">ARRAYED_LIST</a> <span class="esymbol">[</span><a class="eclass" href="../base/string_32_short.html">STRING_32</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Split </span><span class="equoted">a_subject</span><span class="ecomment"> by </span><span class="equoted">a_pattern</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">subject_attached</span><span class="esymbol">:</span> <span class="elocal">a_subject</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">at_least_one</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_count">count</a> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">1</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Regular Expressions: Pattern Validation</span>
+
+	<a name="f_is_valid_regex"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_regex">is_valid_regex</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">a_pattern</span><span class="ecomment"> a valid regular expression?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_regex_escape"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_escape">regex_escape</a> <span class="esymbol">(</span><span class="elocal">a_literal</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_32_short.html">STRING_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Escape special regex characters in </span><span class="equoted">a_literal</span><span class="ecomment"> for literal matching.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">literal_attached</span><span class="esymbol">:</span> <span class="elocal">a_literal</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Regular Expressions: Common Pattern Validation</span>
+
+	<a name="f_is_valid_email_pattern"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_email_pattern">is_valid_email_pattern</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_text</span><span class="ecomment"> match email pattern?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_attached</span><span class="esymbol">:</span> <span class="elocal">a_text</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_is_valid_url_pattern"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_url_pattern">is_valid_url_pattern</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_text</span><span class="ecomment"> match URL pattern?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_attached</span><span class="esymbol">:</span> <span class="elocal">a_text</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_is_valid_ipv4"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_ipv4">is_valid_ipv4</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_text</span><span class="ecomment"> match IPv4 address pattern?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_attached</span><span class="esymbol">:</span> <span class="elocal">a_text</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_is_valid_uuid_pattern"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_uuid_pattern">is_valid_uuid_pattern</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_text</span><span class="ecomment"> match UUID pattern?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_attached</span><span class="esymbol">:</span> <span class="elocal">a_text</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_is_valid_date_iso"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_valid_date_iso">is_valid_date_iso</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_text</span><span class="ecomment"> match ISO date pattern (YYYY-MM-DD)?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_attached</span><span class="esymbol">:</span> <span class="elocal">a_text</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_is_strong_password"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_is_strong_password">is_strong_password</a> <span class="esymbol">(</span><span class="elocal">a_text</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Does </span><span class="equoted">a_text</span><span class="ecomment"> meet strong password requirements?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (8+ chars, uppercase, lowercase, digit, special char)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">text_attached</span><span class="esymbol">:</span> <span class="elocal">a_text</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Regular Expressions: Builder</span>
+
+	<a name="f_new_regex_builder"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_regex_builder">new_regex_builder</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_REGEX_BUILDER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create new fluent regex pattern builder.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_new_regex"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_new_regex">new_regex</a> <span class="esymbol">(</span><span class="elocal">a_pattern</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_general_short.html">READABLE_STRING_GENERAL</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="neclass">SIMPLE_REGEX</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create compiled regex from pattern.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">pattern_attached</span><span class="esymbol">:</span> <span class="elocal">a_pattern</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_attached</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Regular Expressions: Direct Access</span>
+
+	<a name="f_regex"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex">regex</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_REGEX</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to regex engine for advanced operations.</span>
+
+	<a name="f_regex_patterns"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_patterns">regex_patterns</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_REGEX_PATTERNS</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to common patterns library.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Utilities</span>
+
+	<a name="f_bytes_to_hex"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_bytes_to_hex">bytes_to_hex</a> <span class="esymbol">(</span><span class="elocal">a_bytes</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Convert byte array to lowercase hex string.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">bytes_not_void</span><span class="esymbol">:</span> <span class="elocal">a_bytes</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="elocal">a_bytes</span><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <a class="esymbol" href="../base/integer_32_short.html#f_product">*</a> <span class="enumber">2</span>
+
+	<a name="f_hex_to_bytes"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_hex_to_bytes">hex_to_bytes</a> <span class="esymbol">(</span><span class="elocal">a_hex</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/array_short.html">ARRAY</a> <span class="esymbol">[</span><a class="eclass" href="../base/natural_8_short.html">NATURAL_8</a><span class="esymbol">]</span>
+			<span class="ecomment">--</span><span class="ecomment"> Convert hex string to byte array.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">hex_not_void</span><span class="esymbol">:</span> <span class="elocal">a_hex</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">even_length</span><span class="esymbol">:</span> <span class="elocal">a_hex</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <a class="esymbol" href="../base/integer_32_short.html#f_integer_remainder">\\</a> <span class="enumber">2</span> <span class="esymbol">=</span> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">correct_length</span><span class="esymbol">:</span> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/array_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="elocal">a_hex</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_8_short.html#f_count">count</a> <a class="esymbol" href="../base/integer_32_short.html#f_integer_quotient">//</a> <span class="enumber">2</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Direct Access</span>
+
+	<a name="f_json"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_json">json</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_JSON</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to JSON parser for advanced operations.</span>
+
+	<a name="f_csv"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv">csv</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_CSV</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to CSV parser for advanced operations.</span>
+
+	<a name="f_markdown"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_markdown">markdown</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_MARKDOWN</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to markdown converter for advanced operations.</span>
+
+	<a name="f_process"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_process">process</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_PROCESS_HELPER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to process helper for advanced operations.</span>
+
+	<a name="f_random"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_random">random</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_RANDOMIZER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to randomizer for advanced operations.</span>
+
+	<a name="f_logger"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_logger">logger</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_LOGGER</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to logger for advanced operations.</span>
+
+	<a name="f_xml"></a><a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_xml">xml</a><span class="esymbol">:</span> <span class="neclass">SIMPLE_XML</span>
+			<span class="ecomment">--</span><span class="ecomment"> Direct access to XML processor for advanced operations.</span>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">hasher_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_hasher">hasher</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">encoder_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_encoder">encoder</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">uuid_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_uuid_generator">uuid_generator</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">json_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_json_parser">json_parser</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">csv_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_csv_parser">csv_parser</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">markdown_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_markdown_converter">markdown_converter</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">process_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_process_helper">process_helper</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">randomizer_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_randomizer">randomizer</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">logger_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_logger_instance">logger_instance</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">xml_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_xml_processor">xml_processor</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">regex_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_engine">regex_engine</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	<span class="etag">regex_patterns_exists</span><span class="esymbol">:</span> <a class="efeature" href="../simple_foundation_api/foundation_api_short.html#f_regex_patterns_instance">regex_patterns_instance</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../simple_foundation_api/foundation_api_short.html">FOUNDATION_API</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="foundation_api_chart.html">Chart</a>
+<a class="nav class" href="foundation_api_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="foundation_api"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

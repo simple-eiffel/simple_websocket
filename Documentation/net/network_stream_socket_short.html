@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="A network stream socket."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>network_stream_socket Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="network_stream_socket_chart.html">Chart</a>
+<a class="nav class" href="network_stream_socket_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="network_stream_socket"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;A network stream socket.&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/network_stream_socket_short.html">NETWORK_STREAM_SOCKET</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_make">make</a><span class="esymbol">,</span>
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_make_empty">make_empty</a><span class="esymbol">,</span>
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_make_client_by_port">make_client_by_port</a><span class="esymbol">,</span>
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_make_client_by_address_and_port">make_client_by_address_and_port</a><span class="esymbol">,</span>
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_make_server_by_port">make_server_by_port</a><span class="esymbol">,</span>
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_make_server_by_address_and_port">make_server_by_address_and_port</a><span class="esymbol">,</span>
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_make_loopback_server_by_port">make_loopback_server_by_port</a>
+
+
+<span class="ekeyword">create</span> <span class="esymbol">{</span><a class="eclass" href="../net/network_stream_socket_short.html">NETWORK_STREAM_SOCKET</a><span class="esymbol">}</span>
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_make_from_descriptor_and_address">make_from_descriptor_and_address</a><span class="esymbol">,</span>
+	<a class="efeature" href="../net/network_stream_socket_short.html#f_create_from_descriptor">create_from_descriptor</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Initialization</span>
+
+	<a name="f_make"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_make">make</a>
+			<span class="ecomment">--</span><span class="ecomment"> Create a network stream socket.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">timeout_set_to_default</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_timeout_ns">timeout_ns</a> <span class="esymbol">=</span> <a class="efeature" href="../net/socket_timeout_utilities_short.html#f_one_second_in_nanoseconds">One_second_in_nanoseconds</a> <a class="esymbol" href="../base/natural_64_short.html#f_product">*</a> <a class="efeature" href="../net/network_socket_short.html#f_default_timeout">default_timeout</a><span class="edot">.</span><a class="efeature" href="../base/integer_32_ref_short.html#f_to_natural_64">to_natural_64</a>
+			<span class="etag">socket_created</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_is_created">is_created</a>
+
+	<a name="f_make_client_by_port"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_make_client_by_port">make_client_by_port</a> <span class="esymbol">(</span><span class="elocal">a_peer_port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">;</span> <span class="elocal">a_peer_host</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_short.html">READABLE_STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a client connection to </span><span class="equoted">a_peer_host</span><span class="ecomment"> on</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_peer_port</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_peer_host</span><span class="esymbol">:</span> <span class="elocal">a_peer_host</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">a_peer_host</span><span class="edot">.</span><a class="efeature" href="../base/readable_string_general_short.html#f_is_empty">is_empty</a>
+			<span class="etag">valid_port</span><span class="esymbol">:</span> <span class="elocal">a_peer_port</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_make_server_by_address_and_port"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_make_server_by_address_and_port">make_server_by_address_and_port</a> <span class="esymbol">(</span><span class="elocal">a_address</span><span class="esymbol">:</span> <a class="eclass" href="../net/inet_address_short.html">INET_ADDRESS</a><span class="esymbol">;</span> <span class="elocal">a_port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create server socket on </span><span class="equoted">a_address</span><span class="ecomment"> and </span><span class="equoted">a_port</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_port</span><span class="esymbol">:</span> <span class="elocal">a_port</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_make_server_by_port"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_make_server_by_port">make_server_by_port</a> <span class="esymbol">(</span><span class="elocal">a_port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create server socket on </span><span class="equoted">a_port</span><span class="ecomment"> and on any incoming address.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_port</span><span class="esymbol">:</span> <span class="elocal">a_port</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_make_loopback_server_by_port"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_make_loopback_server_by_port">make_loopback_server_by_port</a> <span class="esymbol">(</span><span class="elocal">a_port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create server socket on </span><span class="equoted">a_port</span><span class="ecomment"> that listen only for loopback interface peer.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_port</span><span class="esymbol">:</span> <span class="elocal">a_port</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+
+	<a name="f_make_client_by_address_and_port"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_make_client_by_address_and_port">make_client_by_address_and_port</a> <span class="esymbol">(</span><span class="elocal">a_peer_address</span><span class="esymbol">:</span> <a class="eclass" href="../net/inet_address_short.html">INET_ADDRESS</a><span class="esymbol">;</span> <span class="elocal">a_peer_port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Create a client connection to </span><span class="equoted">a_peer_host</span><span class="ecomment"> on</span>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">a_peer_port</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">valid_peer_address</span><span class="esymbol">:</span> <span class="elocal">a_peer_address</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">valid_port</span><span class="esymbol">:</span> <span class="elocal">a_peer_port</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+	
+<span class="ekeyword">feature</span> 
+
+	<a name="f_connect_timeout"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_connect_timeout">connect_timeout</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The connect timeout in milliseconds</span>
+
+	<a name="f_set_connect_timeout"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_set_connect_timeout">set_connect_timeout</a> <span class="esymbol">(</span><span class="elocal">a_timeout_ms</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;Sets the connect timeout in milliseconds</span>
+
+	<a name="f_accept_timeout"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_accept_timeout">accept_timeout</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> The connect timeout in milliseconds</span>
+
+	<a name="f_set_accept_timeout"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_set_accept_timeout">set_accept_timeout</a> <span class="esymbol">(</span><span class="elocal">a_timeout_ms</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> &nbsp;Sets the accept timeout in milliseconds</span>
+
+	<a name="f_listen"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_listen">listen</a> <span class="esymbol">(</span><span class="elocal">queue</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Listen on socket for at most </span><span class="equoted">queue</span><span class="ecomment"> connections.</span>
+
+	<a name="f_accept_to"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_accept_to">accept_to</a> <span class="esymbol">(</span><span class="elocal">other</span><span class="esymbol">:</span> <span class="ekeyword">separate</span> <span class="ekeyword">like</span> <span class="ekeyword">Current</span><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Accept a new connection on listen socket.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Socket of accepted connection is available in </span><span class="equoted">other</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_created</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">other</span><span class="edot">.</span><a class="efeature" href="../net/network_socket_short.html#f_is_created">is_created</a>
+
+	<a name="f_accept"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_accept">accept</a>
+			<span class="ecomment">--</span><span class="ecomment"> Accept a new connection on listen socket.</span>
+			<span class="ecomment">--</span><span class="ecomment"> Accepted service socket available in </span><span class="ecomment">`</span><a class="efeature" href="../net/stream_socket_short.html#f_accepted">accepted</a><span class="ecomment">`</span><span class="ecomment">.</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_maximum_seg_size"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_maximum_seg_size">maximum_seg_size</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Maximum segment size</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_has_delay"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_has_delay">has_delay</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is option TCPNO_DELAY off.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_is_linger_on"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_is_linger_on">is_linger_on</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is lingering switched on?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_is_out_of_band_inline"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_is_out_of_band_inline">is_out_of_band_inline</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Are out-of-band packets sent inline?</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_linger_time"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_linger_time">linger_time</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Linger time</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_set_delay"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_set_delay">set_delay</a>
+			<span class="ecomment">--</span><span class="ecomment"> Switch option TCPNO_DELAY off.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_set_nodelay"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_set_nodelay">set_nodelay</a>
+			<span class="ecomment">--</span><span class="ecomment"> Switch option TCPNO_DELAY on.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_set_linger_on"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_set_linger_on">set_linger_on</a> <span class="esymbol">(</span><span class="elocal">time</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Switch lingering on and set linger time to </span><span class="equoted">time</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_set_linger_off"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_set_linger_off">set_linger_off</a>
+			<span class="ecomment">--</span><span class="ecomment"> Switch lingering off.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_set_out_of_band_inline"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_set_out_of_band_inline">set_out_of_band_inline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Switch &quot;out of band packets inline&quot; on.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+
+	<a name="f_set_out_of_band_not_inline"></a><a class="efeature" href="../net/network_stream_socket_short.html#f_set_out_of_band_not_inline">set_out_of_band_not_inline</a>
+			<span class="ecomment">--</span><span class="ecomment"> Switch &quot;out of band packets inline&quot; off.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">socket_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/network_socket_short.html#f_exists">exists</a>
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2020, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/network_stream_socket_short.html">NETWORK_STREAM_SOCKET</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="network_stream_socket_chart.html">Chart</a>
+<a class="nav class" href="network_stream_socket_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="network_stream_socket"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

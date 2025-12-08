@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2020, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>email_constants Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="email_constants_chart.html">Chart</a>
+<a class="nav class" href="email_constants_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="email_constants"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/email_constants_short.html">EMAIL_CONSTANTS</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../base/any_short.html#f_default_create">default_create</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Constants for SMTP Protocol</span>
+
+	<a name="f_helo"></a><a class="efeature" href="../net/email_constants_short.html#f_helo">Helo</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;HELO &quot;
+
+	<a name="f_ehlo"></a><a class="efeature" href="../net/email_constants_short.html#f_ehlo">Ehlo</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;EHLO &quot;
+
+	<a name="f_data"></a><a class="efeature" href="../net/email_constants_short.html#f_data">Data</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;DATA&quot;
+
+	<a name="f_mail_from"></a><a class="efeature" href="../net/email_constants_short.html#f_mail_from">Mail_from</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;MAIL FROM: &quot;
+
+	<a name="f_mail_to"></a><a class="efeature" href="../net/email_constants_short.html#f_mail_to">Mail_to</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;RCPT TO: &quot;
+
+	<a name="f_mail_cc"></a><a class="efeature" href="../net/email_constants_short.html#f_mail_cc">Mail_cc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;RCPT CC:&quot;
+
+	<a name="f_mail_bcc"></a><a class="efeature" href="../net/email_constants_short.html#f_mail_bcc">Mail_bcc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;RCPT BCC:&quot;
+
+	<a name="f_mail_reply_to"></a><a class="efeature" href="../net/email_constants_short.html#f_mail_reply_to">Mail_reply_to</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;RCPT REPLY TO:&quot;
+
+	<a name="f_quit"></a><a class="efeature" href="../net/email_constants_short.html#f_quit">Quit</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;QUIT&quot;
+
+	<a name="f_ack_begin_connection"></a><a class="efeature" href="../net/email_constants_short.html#f_ack_begin_connection">Ack_begin_connection</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">220</span>
+
+	<a name="f_ok"></a><a class="efeature" href="../net/email_constants_short.html#f_ok">Ok</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">250</span>
+
+	<a name="f_ack_end_connection"></a><a class="efeature" href="../net/email_constants_short.html#f_ack_end_connection">Ack_end_connection</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">221</span>
+
+	<a name="f_remote_error"></a><a class="efeature" href="../net/email_constants_short.html#f_remote_error">Remote_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">550</span>
+
+	<a name="f_data_code"></a><a class="efeature" href="../net/email_constants_short.html#f_data_code">Data_code</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">354</span>
+
+	<a name="f_struct_error"></a><a class="efeature" href="../net/email_constants_short.html#f_struct_error">Struct_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">552</span>
+
+	<a name="f_size_error"></a><a class="efeature" href="../net/email_constants_short.html#f_size_error">Size_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">500</span>
+
+	<a name="f_no_valid_recipient"></a><a class="efeature" href="../net/email_constants_short.html#f_no_valid_recipient">No_valid_recipient</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a> <span class="esymbol">=</span> <span class="enumber">554</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Constants for email headers (Authorized keys for the Hashtables)</span>
+
+	<a name="f_h_to"></a><a class="efeature" href="../net/email_constants_short.html#f_h_to">H_to</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;To&quot;
+
+	<a name="f_h_from"></a><a class="efeature" href="../net/email_constants_short.html#f_h_from">H_from</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;From&quot;
+
+	<a name="f_h_cc"></a><a class="efeature" href="../net/email_constants_short.html#f_h_cc">H_cc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Cc&quot;
+
+	<a name="f_h_bcc"></a><a class="efeature" href="../net/email_constants_short.html#f_h_bcc">H_bcc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Bcc&quot;
+
+	<a name="f_h_subject"></a><a class="efeature" href="../net/email_constants_short.html#f_h_subject">H_subject</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Subject&quot;
+
+	<a name="f_h_reply_to"></a><a class="efeature" href="../net/email_constants_short.html#f_h_reply_to">H_reply_to</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Reply-to&quot;
+
+	<a name="f_h_date"></a><a class="efeature" href="../net/email_constants_short.html#f_h_date">H_date</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a> <span class="esymbol">=</span> &quot;Date&quot;
+	
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2020, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/email_constants_short.html">EMAIL_CONSTANTS</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="email_constants_chart.html">Chart</a>
+<a class="nav class" href="email_constants_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="email_constants"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Objects that ..."/>
+<meta name="author" content=""/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>addrinfo Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="addrinfo_chart.html">Chart</a>
+<a class="nav class" href="addrinfo_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="addrinfo"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Objects that ...&quot;</span>
+	<span class="eitag">author</span><span class="esymbol">:</span> <span class="estring">&quot;&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">deferred</span> <span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/addrinfo_short.html">ADDRINFO</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Constants</span>
+
+	<a name="f_af_inet"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../net/addrinfo_short.html#f_af_inet">af_inet</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+
+	<a name="f_af_inet6"></a><span class="ekeyword">frozen</span> <a class="efeature" href="../net/addrinfo_short.html#f_af_inet6">af_inet6</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_flags"></a><a class="efeature" href="../net/addrinfo_short.html#f_flags">flags</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Flags that indicate options used in the getaddrinfo function.</span>
+			<span class="ecomment">--</span><span class="ecomment"> See AI_PASSIVE, AI_CANONNAME, and AI_NUMERICHOST etc</span>
+
+	<a name="f_family"></a><a class="efeature" href="../net/addrinfo_short.html#f_family">family</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Protocol family, such as PF_INET.</span>
+
+	<a name="f_socktype"></a><a class="efeature" href="../net/addrinfo_short.html#f_socktype">socktype</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Denotes the type of socket that is wanted: SOCK_STREAM,</span>
+			<span class="ecomment">--</span><span class="ecomment"> SOCK_DGRAM, or SOCK_RAW. &nbsp;When ai_socktype is zero the</span>
+			<span class="ecomment">--</span><span class="ecomment"> caller will accept any socket type</span>
+
+	<a name="f_protocol"></a><a class="efeature" href="../net/addrinfo_short.html#f_protocol">protocol</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Indicates which transport protocol is desired, IPPROTO_UDP</span>
+			<span class="ecomment">--</span><span class="ecomment"> or IPPROTO_TCP. &nbsp;If ai_protocol is zero the caller will</span>
+			<span class="ecomment">--</span><span class="ecomment"> accept any protocol.</span>
+
+	<a name="f_addrlen"></a><a class="efeature" href="../net/addrinfo_short.html#f_addrlen">addrlen</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Length of the ai_addr member, in bytes.</span>
+
+	<a name="f_canonname"></a><a class="efeature" href="../net/addrinfo_short.html#f_canonname">canonname</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Canonical name for the host.</span>
+
+	<a name="f_addr"></a><a class="efeature" href="../net/addrinfo_short.html#f_addr">addr</a><span class="esymbol">:</span> <a class="eclass" href="../base/pointer_short.html">POINTER</a>
+			<span class="ecomment">--</span><span class="ecomment"> Pointer to a sockaddr structure.</span>
+
+	<a name="f_next"></a><a class="efeature" href="../net/addrinfo_short.html#f_next">next</a><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../net/addrinfo_short.html">ADDRINFO</a>
+			<span class="ecomment">--</span><span class="ecomment"> Pointer to the next structure in a linked list.</span>
+			<span class="ecomment">--</span><span class="ecomment"> This is Void in the last addrinfo structure of a linked list</span>
+	
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/addrinfo_short.html">ADDRINFO</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="addrinfo_chart.html">Chart</a>
+<a class="nav class" href="addrinfo_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="addrinfo"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

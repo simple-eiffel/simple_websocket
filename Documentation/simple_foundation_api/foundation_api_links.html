@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="TTUnified API facade for foundation-level operations.  TTProvides single entry point to: TT- Base64 encoding/decoding (simple_base64) TT- Cryptographic hashing (simple_hash) TT- UUID generation (simple_uuid) TT- JSON parsing/building (simple_json) TT- CSV parsing/generation (simple_csv) TT- Markdown to HTML conversion (simple_markdown) TT- Data validation (simple_validation) TT- Process execution (simple_process) TT- Random data generation (simple_randomizer) TT- HTMX element generation (simple_htmx) TT- Structured logging (simple_logger) TT- XML parsing/building (simple_xml) TT- Date/time operations (simple_datetime) TT- Regular expressions (simple_regex)  TTUsage: TTTcreate foundation.make TTTfoundation.sha256 (data) TTTfoundation.base64_encode (Hello) TTTfoundation.new_uuid TTTfoundation.parse_json ({key: value}) TTTfoundation.parse_csv (a,b,c 1,2,3) TTTfoundation.markdown_to_html (# Hello) TTTfoundation.new_validator.required.email.validate (test@test.com) TTTfoundation.random_integer_in_range (1, 100) TTTfoundation.log.info (Application started) TTTfoundation.new_logger.info_fields (Event, << [user_id, 123] >>) TTTfoundation.parse_xml (<root><item>value</item></root>).text_at (root/item) TTTfoundation.new_date (2025, 12, 7).to_iso8601 TTTfoundation.today.plus_days (7) TTTfoundation.new_duration (0, 2, 30, 0).to_human TTTfoundation.regex_match (\d+, abc123).value -- 123 TTTfoundation.regex_replace_all (\s+, a  b  c,  ) -- a b c TTTfoundation.is_valid_email_pattern (user@example.com) -- True"/>
+<meta name="author" content="Larry Rix"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>foundation_api Relations</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="foundation_api_chart.html">Chart</a>
+<span class="nav class selected">Relations</span>
+<a class="nav class" href="foundation_api_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="foundation_api"></span>
+</div></form><pre><span class="ekeyword">class</span>
+	<a class="eclass" href="../simple_foundation_api/foundation_api_links.html">FOUNDATION_API</a>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../base/any_links.html">ANY</a>
+
+<span class="ekeyword">Descendants</span>
+	<a class="eclass" href="../simple_foundation_api/foundation_links.html">FOUNDATION</a>
+
+<span class="ekeyword">Clients</span>
+	<a class="eclass" href="../simple_foundation_api/foundation_api_links.html">FOUNDATION_API</a>
+
+<span class="ekeyword">Suppliers</span>
+	<a class="eclass" href="../base/array_links.html">ARRAY</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/arrayed_list_links.html">ARRAYED_LIST</a> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/boolean_links.html">BOOLEAN</a>
+	<a class="eclass" href="../base/character_8_links.html">CHARACTER_8</a>
+	<a class="eclass" href="../simple_foundation_api/foundation_api_links.html">FOUNDATION_API</a>
+	<a class="eclass" href="../base/integer_32_links.html">INTEGER_32</a>
+	<a class="eclass" href="../base/iteration_cursor_links.html">ITERATION_CURSOR</a><span class="echar">*</span> <span class="esymbol">[</span><span class="egeneric">G</span><span class="esymbol">]</span>
+	<a class="eclass" href="../base/real_64_links.html">REAL_64</a>
+	<span class="neclass">SIMPLE_AGE</span>
+	<span class="neclass">SIMPLE_BASE64</span>
+	<span class="neclass">SIMPLE_CSV</span>
+	<span class="neclass">SIMPLE_DATE</span>
+	<span class="neclass">SIMPLE_DATE_RANGE</span>
+	<span class="neclass">SIMPLE_DATE_TIME</span>
+	<span class="neclass">SIMPLE_DURATION</span>
+	<span class="neclass">SIMPLE_HASH</span>
+	<span class="neclass">SIMPLE_JSON</span>
+	<span class="neclass">SIMPLE_LOGGER</span>
+	<span class="neclass">SIMPLE_MARKDOWN</span>
+	<span class="neclass">SIMPLE_PROCESS_HELPER</span>
+	<span class="neclass">SIMPLE_RANDOMIZER</span>
+	<span class="neclass">SIMPLE_REGEX</span>
+	<span class="neclass">SIMPLE_REGEX_BUILDER</span>
+	<span class="neclass">SIMPLE_REGEX_MATCH</span>
+	<span class="neclass">SIMPLE_REGEX_MATCH_LIST</span>
+	<span class="neclass">SIMPLE_REGEX_PATTERNS</span>
+	<span class="neclass">SIMPLE_TIME</span>
+	<span class="neclass">SIMPLE_UUID</span>
+	<span class="neclass">SIMPLE_VALIDATOR</span>
+	<span class="neclass">SIMPLE_XML</span>
+	<span class="neclass">SIMPLE_XML_DOCUMENT</span>
+	<a class="eclass" href="../base/string_32_links.html">STRING_32</a>
+	<a class="eclass" href="../base/string_8_links.html">STRING_8</a>
+	<a class="eclass" href="../base/string_8_iteration_cursor_links.html">STRING_8_ITERATION_CURSOR</a>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="foundation_api_chart.html">Chart</a>
+<span class="nav class selected">Relations</span>
+<a class="nav class" href="foundation_api_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="foundation_api"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>

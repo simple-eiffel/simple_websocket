@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Implementation of transfer manager builder"/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2021, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 5949 Hollister Ave., Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>transfer_manager_builder_impl Contracts</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="transfer_manager_builder_impl_chart.html">Chart</a>
+<a class="nav class" href="transfer_manager_builder_impl_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="transfer_manager_builder_impl"></span>
+</div></form><pre><span class="ekeyword">note</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Implementation of transfer manager builder&quot;</span>
+	<span class="eitag">legal</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">status</span><span class="esymbol">:</span> <span class="estring">&quot;See notice at end of class.&quot;</span>
+	<span class="eitag">date</span><span class="esymbol">:</span> <span class="estring">&quot;$Date$&quot;</span>
+	<span class="eitag">revision</span><span class="esymbol">:</span> <span class="estring">&quot;$Revision$&quot;</span>
+
+<span class="ekeyword">class</span> <span class="ekeyword">interface</span>
+	<a class="eclass" href="../net/transfer_manager_builder_impl_short.html">TRANSFER_MANAGER_BUILDER_IMPL</a>
+
+<span class="ekeyword">create</span> 
+	<a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_make">make</a>
+
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Access</span>
+
+	<a name="f_manager"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_manager">manager</a><span class="esymbol">:</span> <a class="eclass" href="../net/transfer_manager_short.html">TRANSFER_MANAGER</a>
+			<span class="ecomment">--</span><span class="ecomment"> The built manager</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">manager_built</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_manager_built">manager_built</a>
+
+	<a name="f_transaction"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transaction">transaction</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../net/transaction_short.html">TRANSACTION</a>
+			<span class="ecomment">--</span><span class="ecomment"> </span><span class="equoted">n</span><span class="ecomment">-th transaction</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_empty">is_empty</a>
+			<span class="etag">index_in_range</span><span class="esymbol">:</span> <span class="enumber">1</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="elocal">n</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">n</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">result_exists</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Measurement</span>
+
+	<a name="f_count"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a>
+			<span class="ecomment">--</span><span class="ecomment"> Number of transactions in builder</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status report</span>
+
+	<a name="f_is_empty"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_empty">is_empty</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> No transaction stored in builder?</span>
+
+	<a name="f_manager_built"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_manager_built">manager_built</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has manager been built?</span>
+
+	<a name="f_is_mode_valid"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_mode_valid">is_mode_valid</a> <span class="esymbol">(</span><span class="elocal">mode</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is </span><span class="equoted">mode</span><span class="ecomment"> valid?</span>
+
+	<a name="f_is_address_correct"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_address_correct">is_address_correct</a> <span class="esymbol">(</span><span class="elocal">addr</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">mode</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is address </span><span class="equoted">addr</span><span class="ecomment"> correct considering </span><span class="equoted">mode</span><span class="ecomment">?</span>
+			<span class="ecomment">--</span><span class="ecomment"> (</span><span class="equoted">mode</span><span class="ecomment"> is </span><span class="ecomment">`</span><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_readable">readable</a><span class="ecomment">`</span><span class="ecomment"> or </span><span class="ecomment">`</span><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_writable">writable</a><span class="ecomment">`</span><span class="ecomment">)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">non_empty_address</span><span class="esymbol">:</span> <span class="elocal">addr</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">addr</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+			<span class="etag">mode_valid</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_mode_valid">is_mode_valid</a><span class="esymbol"> </span><span class="esymbol">(</span><span class="elocal">mode</span><span class="esymbol">)</span>
+
+	<a name="f_transfer_finished"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer_finished">transfer_finished</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has a transfer occurred?</span>
+
+	<a name="f_error"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_error">error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has an error occurred?</span>
+
+	<a name="f_error_reason"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_error_reason">error_reason</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reason of most recent error</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">error_occurred</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_error">error</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">non_empty_string</span><span class="esymbol">:</span> <span class="ekeyword">Result</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="ekeyword">Result</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+
+	<a name="f_transfer_succeeded"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer_succeeded">transfer_succeeded</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Has the last transfer succeeded?</span>
+
+	<a name="f_last_added_source_correct"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_last_added_source_correct">last_added_source_correct</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is source address of the most recent transaction addition</span>
+			<span class="ecomment">--</span><span class="ecomment"> correct?</span>
+
+	<a name="f_last_added_target_correct"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_last_added_target_correct">last_added_target_correct</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_short.html">BOOLEAN</a>
+			<span class="ecomment">--</span><span class="ecomment"> Is target address of the most recent transaction addition</span>
+			<span class="ecomment">--</span><span class="ecomment"> correct?</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Status setting</span>
+
+	<a name="f_set_timeout"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_set_timeout">set_timeout</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set timeout to </span><span class="equoted">s</span><span class="ecomment"> seconds.</span>
+			<span class="ecomment">--</span><span class="ecomment"> (This feature must be called *before* adding transactions in</span>
+			<span class="ecomment">--</span><span class="ecomment"> order to affect the added transactions.)</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">non_negative</span><span class="esymbol">:</span> <span class="elocal">s</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">timeout_set</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_timeout">timeout</a> <span class="ekeyword">as</span> l_timeout_var <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="elocal">l_timeout_var</span><span class="edot">.</span><a class="efeature" href="../base/cell_short.html#f_item">item</a> <span class="esymbol">=</span> <span class="elocal">s</span>
+
+	<a name="f_set_source_proxy"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_set_source_proxy">set_source_proxy</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set source proxy host to </span><span class="equoted">host</span><span class="ecomment"> and port to </span><span class="equoted">port</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">host_not_empty</span><span class="esymbol">:</span> <span class="elocal">host</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">host</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+			<span class="etag">port_non_negative</span><span class="esymbol">:</span> <span class="elocal">port</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">source_proxy_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_source_proxy">source_proxy</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">host_port_set</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_source_proxy">source_proxy</a> <span class="ekeyword">as</span> l_proxy <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="elocal">l_proxy</span><span class="edot">.</span><a class="efeature" href="../net/proxy_information_short.html#f_host">host</a> <span class="esymbol">=</span> <span class="elocal">host</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">l_proxy</span><span class="edot">.</span><a class="efeature" href="../net/proxy_information_short.html#f_port">port</a> <span class="esymbol">=</span> <span class="elocal">port</span><span class="esymbol">)</span>
+
+	<a name="f_set_target_proxy"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_set_target_proxy">set_target_proxy</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set target proxy host to </span><span class="equoted">host</span><span class="ecomment"> and port to </span><span class="equoted">port</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">host_not_empty</span><span class="esymbol">:</span> <span class="elocal">host</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">host</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+			<span class="etag">port_non_negative</span><span class="esymbol">:</span> <span class="elocal">port</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">target_proxy_exists</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_target_proxy">target_proxy</a>
+			<span class="etag">host_port_set</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_target_proxy">target_proxy</a> <span class="ekeyword">as</span> p <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../net/proxy_information_short.html#f_host">host</a> <span class="esymbol">=</span> <span class="elocal">host</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">p</span><span class="edot">.</span><a class="efeature" href="../net/proxy_information_short.html#f_port">port</a> <span class="esymbol">=</span> <span class="elocal">port</span><span class="esymbol">)</span>
+
+	<a name="f_set_proxies"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_set_proxies">set_proxies</a> <span class="esymbol">(</span><span class="elocal">host</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">;</span> <span class="elocal">port</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Set source and target proxy host to </span><span class="equoted">host</span><span class="ecomment"> and</span>
+			<span class="ecomment">--</span><span class="ecomment"> port to </span><span class="equoted">port</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">host_not_empty</span><span class="esymbol">:</span> <span class="elocal">host</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <span class="elocal">host</span><span class="edot">.</span><a class="efeature" href="../base/finite_short.html#f_is_empty">is_empty</a>
+			<span class="etag">port_non_negative</span><span class="esymbol">:</span> <span class="elocal">port</span> <a class="esymbol" href="../base/comparable_short.html#f_is_greater_equal">&gt;=</a> <span class="enumber">0</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">source_proxy_exists</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_source_proxy">source_proxy</a> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">proxies_equal</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_source_proxy">source_proxy</a> <span class="esymbol">=</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_target_proxy">target_proxy</a>
+			<span class="etag">host_port_set</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_source_proxy">source_proxy</a> <span class="ekeyword">as</span> l_proxy <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted_semistrict">and then</a> <span class="esymbol">(</span><span class="elocal">l_proxy</span><span class="edot">.</span><a class="efeature" href="../net/proxy_information_short.html#f_host">host</a> <span class="esymbol">=</span> <span class="elocal">host</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">l_proxy</span><span class="edot">.</span><a class="efeature" href="../net/proxy_information_short.html#f_port">port</a> <span class="esymbol">=</span> <span class="elocal">port</span><span class="esymbol">)</span>
+
+	<a name="f_reset_source_proxy"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_reset_source_proxy">reset_source_proxy</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reset source proxy.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">no_source_proxy_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_source_proxy">source_proxy</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_reset_target_proxy"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_reset_target_proxy">reset_target_proxy</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reset target proxy.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">no_target_proxy_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_target_proxy">target_proxy</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+
+	<a name="f_reset_proxies"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_reset_proxies">reset_proxies</a>
+			<span class="ecomment">--</span><span class="ecomment"> Reset source and target proxy.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">no_source_proxy_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_source_proxy">source_proxy</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="etag">no_target_proxy_set</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_target_proxy">target_proxy</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Element change</span>
+
+	<a name="f_add_transaction"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_add_transaction">add_transaction</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">,</span> <span class="elocal">t</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_short.html">STRING_8</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Add transaction from source </span><span class="equoted">s</span><span class="ecomment"> to target </span><span class="equoted">t</span><span class="ecomment">.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">source_exists</span><span class="esymbol">:</span> <span class="elocal">s</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+			<span class="etag">target_exists</span><span class="esymbol">:</span> <span class="elocal">t</span> <span class="esymbol">/=</span> <span class="ekeyword">Void</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">one_more_transaction_if_correct</span><span class="esymbol">:</span> <span class="esymbol">(</span><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_last_added_source_correct">last_added_source_correct</a> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_last_added_target_correct">last_added_target_correct</a><span class="esymbol">)</span> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a> <span class="esymbol">=</span> <span class="ekeyword">old</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a> <a class="esymbol" href="../base/integer_32_short.html#f_plus">+</a> <span class="enumber">1</span>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Removal</span>
+
+	<a name="f_remove_transaction"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_remove_transaction">remove_transaction</a> <span class="esymbol">(</span><span class="elocal">n</span><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_short.html">INTEGER_32</a><span class="esymbol">)</span>
+			<span class="ecomment">--</span><span class="ecomment"> Remove </span><span class="equoted">n</span><span class="ecomment">-th transaction.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_empty">is_empty</a>
+			<span class="etag">index_in_range</span><span class="esymbol">:</span> <span class="enumber">1</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <span class="elocal">n</span> <a class="ekeyword" href="../base/boolean_short.html#f_conjuncted">and</a> <span class="elocal">n</span> <a class="esymbol" href="../base/comparable_short.html#f_is_less_equal">&lt;=</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">one_less_item</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a> <span class="esymbol">=</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a> <a class="esymbol" href="../base/integer_32_short.html#f_minus">-</a> <span class="enumber">1</span>
+			<span class="etag">index_unchanged</span><span class="esymbol">:</span> <span class="ekeyword">old</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transactions">transactions</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_index">index</a> <a class="esymbol" href="../base/integer_32_short.html#f_is_less">&lt;</a> <span class="ekeyword">old</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transactions">transactions</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_index">index</a> <span class="esymbol">=</span> <span class="ekeyword">old</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transactions">transactions</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_index">index</a>
+			<span class="etag">index_adapted</span><span class="esymbol">:</span> <span class="ekeyword">old</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transactions">transactions</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_index">index</a> <span class="esymbol">=</span> <span class="ekeyword">old</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transactions">transactions</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_index">index</a> <span class="esymbol">=</span> <span class="ekeyword">old</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transactions">transactions</a><span class="edot">.</span><a class="efeature" href="../base/arrayed_list_short.html#f_index">index</a> <a class="esymbol" href="../base/integer_32_short.html#f_minus">-</a> <span class="enumber">1</span>
+
+	<a name="f_wipe_out"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_wipe_out">wipe_out</a>
+			<span class="ecomment">--</span><span class="ecomment"> Clear manager.</span>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">empty</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_empty">is_empty</a>
+			<span class="etag">no_optimized_transactions</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_optimized_transactions">optimized_transactions</a> <span class="esymbol">=</span> <span class="ekeyword">Void</span>
+			<span class="etag">no_manager</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_manager_built">manager_built</a>
+	
+<span class="ekeyword">feature</span> <span class="ecomment">--</span><span class="ecomment"> Basic operations</span>
+
+	<a name="f_build_manager"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_build_manager">build_manager</a>
+			<span class="ecomment">--</span><span class="ecomment"> Build manager.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">not_empty</span><span class="esymbol">:</span> <a class="ekeyword" href="../base/boolean_short.html#f_negated">not</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_is_empty">is_empty</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">manager_ready</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_manager_built">manager_built</a>
+
+	<a name="f_transfer"></a><a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer">transfer</a>
+			<span class="ecomment">--</span><span class="ecomment"> Start transfer.</span>
+		<span class="ekeyword">require</span>
+			<span class="etag">manager_built</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_manager_built">manager_built</a>
+		<span class="ekeyword">ensure</span>
+			<span class="etag">transfer_finished</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer_finished">transfer_finished</a>
+	
+<span class="ekeyword">invariant</span>
+	<span class="etag">readable_set_exists</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_readable_set">readable_set</a>
+	<span class="etag">writable_set_exists</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_writable_set">writable_set</a>
+	<span class="etag">resource_hash</span><span class="esymbol">:</span> <span class="ekeyword">attached</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_resource_hash">resource_hash</a>
+	<span class="etag">success_constraint</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer_succeeded">transfer_succeeded</a> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_transfer_finished">transfer_finished</a>
+	<span class="etag">count_equality</span><span class="esymbol">:</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_optimized_count">optimized_count</a> <a class="esymbol" href="../base/comparable_short.html#f_is_greater">&gt;</a> <span class="enumber">0</span> <a class="ekeyword" href="../base/boolean_short.html#f_implication">implies</a> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_count">count</a> <span class="esymbol">=</span> <a class="efeature" href="../net/transfer_manager_builder_impl_short.html#f_optimized_count">optimized_count</a>
+
+<span class="ekeyword">note</span>
+	<span class="eitag">copyright</span><span class="esymbol">:</span> <span class="estring">&quot;Copyright (c) 1984-2021, Eiffel Software and others&quot;</span>
+	<span class="eitag">license</span><span class="esymbol">:</span> <span class="estring">&quot;Eiffel Forum License v2 (see </span><a class="estring" href="http://www.eiffel.com/licensing/forum.txt">http://www.eiffel.com/licensing/forum.txt</a><span class="estring">)&quot;</span>
+	<span class="eitag">source</span><span class="esymbol">:</span> <span class="estring">&quot;</span><span class="estring">[</span>
+		<span class="estring">Eiffel Software</span>
+		<span class="estring">5949 Hollister Ave., Goleta, CA 93117 USA</span>
+		<span class="estring">Telephone 805-685-1006, Fax 805-685-6869</span>
+		<span class="estring">Website </span><a class="estring" href="http://www.eiffel.com">http://www.eiffel.com</a>
+		<span class="estring">Customer support </span><a class="estring" href="http://support.eiffel.com">http://support.eiffel.com</a>
+	<span class="estring">]</span><span class="estring">&quot;</span>
+
+<span class="ekeyword">end</span> <span class="ecomment">--</span> <span class="ecomment">class </span><a class="eclass" href="../net/transfer_manager_builder_impl_short.html">TRANSFER_MANAGER_BUILDER_IMPL</a></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<a class="nav class" href="transfer_manager_builder_impl_chart.html">Chart</a>
+<a class="nav class" href="transfer_manager_builder_impl_links.html">Relations</a>
+<span class="nav class selected">Contracts</span>
+<span class="nav class goto">Go to: <input name="c" value="transfer_manager_builder_impl"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
+

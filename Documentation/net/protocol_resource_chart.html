@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="ISE EiffelStudio version 25.02.9.8732 - win64">
+<meta name="description" content="Objects that ..."/>
+<meta name="legal" content="See notice at end of class."/>
+<meta name="author" content=""/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="copyright" content="Copyright (c) 1984-2006, Eiffel Software and others"/>
+<meta name="license" content="Eiffel Forum License v2 (see http://www.eiffel.com/licensing/forum.txt)"/>
+<meta name="source" content="Eiffel Software 356 Storke Road, Goleta, CA 93117 USA Telephone 805-685-1006, Fax 805-685-6869 Website http://www.eiffel.com Customer support http://support.eiffel.com"/>
+<meta name="keywords" content="Eiffel class"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<title>protocol_resource Chart</title>
+<link rel="stylesheet" href="../default.css" type="text/css">
+<script type="text/javascript" src="../goto.html"></script>
+</head>
+<body>
+<pre></pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="protocol_resource_links.html">Relations</a>
+<a class="nav class" href="protocol_resource_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="protocol_resource"></span>
+</div></form><pre><span class="ekeyword">deferred</span> <span class="ekeyword">class</span>
+	<a class="eclass" href="../net/protocol_resource_chart.html">PROTOCOL_RESOURCE</a>
+
+<span class="ekeyword">General</span>
+	<span class="eitag">cluster</span><span class="esymbol">:</span> <span class="necluster">mail</span>
+	<span class="eitag">description</span><span class="esymbol">:</span> <span class="estring">&quot;Objects that ...&quot;</span>
+
+<span class="ekeyword">Ancestors</span>
+	<a class="eclass" href="../net/email_resource_chart.html">EMAIL_RESOURCE</a><span class="echar">*</span>
+
+<span class="ekeyword">Queries</span>
+	<span title="`ack_begin_connection' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_ack_begin_connection">Ack_begin_connection</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`ack_end_connection' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_ack_end_connection">Ack_end_connection</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`can_be_received' is declared in `Current'"><a class="efeature" href="../net/protocol_resource_short.html#f_can_be_received">Can_be_received</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`can_be_sent' is declared in `Current'"><a class="efeature" href="../net/protocol_resource_short.html#f_can_be_sent">Can_be_sent</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`can_receive' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_can_receive">can_receive</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`can_send' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_can_send">can_send</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`data' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_data">Data</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`data_code' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_data_code">Data_code</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`ehlo' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_ehlo">Ehlo</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`error' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_error">error</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`h_bcc' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_h_bcc">H_bcc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`h_cc' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_h_cc">H_cc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`h_date' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_h_date">H_date</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`h_from' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_h_from">H_from</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`h_reply_to' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_h_reply_to">H_reply_to</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`h_subject' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_h_subject">H_subject</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`h_to' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_h_to">H_to</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`header' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_header">header</a> <span class="esymbol">(</span><span class="elocal">h</span><span class="esymbol">:</span> <a class="eclass" href="../base/readable_string_8_chart.html">READABLE_STRING_8</a><span class="esymbol">)</span><span class="esymbol">:</span> <span class="ekeyword">detachable</span> <a class="eclass" href="../net/header_chart.html">HEADER</a></span>
+	<span title="`headers' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_headers">headers</a><span class="esymbol">:</span> <a class="eclass" href="../base/hash_table_chart.html">HASH_TABLE</a> <span class="esymbol">[</span><a class="eclass" href="../net/header_chart.html">HEADER</a><span class="esymbol">,</span> <a class="eclass" href="../base/readable_string_8_chart.html">READABLE_STRING_8</a><span class="esymbol">]</span></span>
+	<span title="`helo' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_helo">Helo</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`is_header_valid' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_is_header_valid">is_header_valid</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`is_initiated' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_is_initiated">is_initiated</a><span class="esymbol">:</span> <a class="eclass" href="../base/boolean_chart.html">BOOLEAN</a></span>
+	<span title="`mail_bcc' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_mail_bcc">Mail_bcc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`mail_cc' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_mail_cc">Mail_cc</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`mail_from' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_mail_from">Mail_from</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`mail_reply_to' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_mail_reply_to">Mail_reply_to</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`mail_to' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_mail_to">Mail_to</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`no_valid_recipient' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_no_valid_recipient">No_valid_recipient</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`ok' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_ok">Ok</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`quit' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_quit">Quit</a><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a></span>
+	<span title="`remote_error' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_remote_error">Remote_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`size_error' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_size_error">Size_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`struct_error' was declared in EMAIL_CONSTANTS"><a class="efeature" href="../net/email_constants_short.html#f_struct_error">Struct_error</a><span class="esymbol">:</span> <a class="eclass" href="../base/integer_32_chart.html">INTEGER_32</a></span>
+	<span title="`transfer_error' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_transfer_error">Transfer_error</a><span class="esymbol">:</span> <a class="eclass" href="../net/transfer_error_chart.html">TRANSFER_ERROR</a></span>
+
+<span class="ekeyword">Commands</span>
+	<span title="`close_protocol' is declared in `Current'"><a class="efeature" href="../net/protocol_resource_short.html#f_close_protocol">close_protocol</a></span>
+	<span title="`disable_initiated' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_disable_initiated">disable_initiated</a></span>
+	<span title="`disable_transfer_error' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_disable_transfer_error">disable_transfer_error</a></span>
+	<span title="`enable_initiated' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_enable_initiated">enable_initiated</a></span>
+	<span title="`enable_transfer_error' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_enable_transfer_error">enable_transfer_error</a></span>
+	<span title="`initiate_protocol' is declared in `Current'"><a class="efeature" href="../net/protocol_resource_short.html#f_initiate_protocol">initiate_protocol</a></span>
+	<span title="`set_transfer_error_message' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_set_transfer_error_message">set_transfer_error_message</a> <span class="esymbol">(</span><span class="elocal">s</span><span class="esymbol">:</span> <a class="eclass" href="../base/string_8_chart.html">STRING_8</a><span class="esymbol">)</span></span>
+	<span title="`transfer' was declared in EMAIL_RESOURCE"><a class="efeature" href="../net/email_resource_short.html#f_transfer">transfer</a> <span class="esymbol">(</span><span class="elocal">resource</span><span class="esymbol">:</span> <a class="eclass" href="../net/email_resource_chart.html">EMAIL_RESOURCE</a><span class="esymbol">)</span></span>
+
+</pre><form class="nav" onsubmit="go_to('../',this.c.value);return false;">
+<div class="nav">
+<a class="nav hierarchy" href="../class_list.html">Classes</a>
+<a class="nav hierarchy" href="../cluster_list.html">Clusters</a>
+<a class="nav hierarchy" href="../cluster_hierarchy.html">Cluster hierarchy</a>
+<span class="nav class selected">Chart</span>
+<a class="nav class" href="protocol_resource_links.html">Relations</a>
+<a class="nav class" href="protocol_resource_short.html">Contracts</a>
+<span class="nav class goto">Go to: <input name="c" value="protocol_resource"></span>
+</div></form><pre></pre>
+<p style="text-align:center;">Generated by <a href="http://www.eiffel.com">ISE EiffelStudio</a></p>
+</body>
+</html>
