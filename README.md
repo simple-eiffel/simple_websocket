@@ -4,7 +4,7 @@
 
 # simple_websocket
 
-**[Documentation](https://ljr1981.github.io/simple_websocket/)**
+**[Documentation](https://simple-eiffel.github.io/simple_websocket/)**
 
 RFC 6455 WebSocket protocol implementation for Eiffel. Handles frame encoding/decoding, message fragmentation, and WebSocket handshake.
 
