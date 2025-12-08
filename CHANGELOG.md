@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Testing config updates, AutoTest fixes, .gitignore cleanup
+- Add SCOOP concurrency capability
+- Migrate to simple_testing library
+- Remove redundant result_not_void postconditions
+- Refactor to use simple_foundation_api
+- Add documentation site with API reference
+- Initial commit: simple_websocket library
+
 ## [1.0.0] - 2025-12-08
 
 ### Added
