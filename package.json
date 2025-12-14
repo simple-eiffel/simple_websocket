@@ -1,0 +1,9 @@
+{
+  "name": "simple_websocket",
+  "version": "0.1.0",
+  "description": "Simple WebSocket Library - RFC 6455 WebSocket Protocol for Eiffel",
+  "author": "Larry Rix",
+  "license": "MIT",
+  "category": "networking",
+  "keywords": ["websocket", "realtime", "bidirectional"]
+}
