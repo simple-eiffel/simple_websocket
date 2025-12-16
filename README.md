@@ -23,13 +23,12 @@ RFC 6455 WebSocket protocol implementation for Eiffel. Handles frame encoding/de
 Add to your ECF:
 
 ```xml
-<library name="simple_websocket" location="$SIMPLE_WEBSOCKET\simple_websocket.ecf"/>
+<library name="simple_websocket" location="$SIMPLE_EIFFEL/simple_websocket/simple_websocket.ecf"/>
 ```
 
-Set environment variables:
+Set environment variable (one-time setup for all simple_* libraries):
 ```
-SIMPLE_WEBSOCKET=D:\prod\simple_websocket
-SIMPLE_FOUNDATION_API=D:\prod\simple_foundation_api
+SIMPLE_EIFFEL=D:\prod
 ```
 
 Note: simple_websocket uses simple_foundation_api for Base64 encoding and SHA-1 hashing in the handshake.
