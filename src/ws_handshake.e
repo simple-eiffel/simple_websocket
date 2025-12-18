@@ -214,7 +214,7 @@ feature {NONE} -- Implementation
 			random: RANDOM
 			bytes: ARRAY [NATURAL_8]
 			i: INTEGER
-			foundation: FOUNDATION
+			base64: SIMPLE_BASE64
 		do
 			create random.make
 			random.start
@@ -224,8 +224,8 @@ feature {NONE} -- Implementation
 				bytes [i] := (random.item \\ 256).to_natural_8
 				i := i + 1
 			end
-			create foundation
-			Result := foundation.base64_encode_bytes (bytes)
+			create base64.make
+			Result := base64.encode_bytes (bytes)
 		end
 
 	compute_accept_key (a_key: STRING): STRING
@@ -233,14 +233,16 @@ feature {NONE} -- Implementation
 		require
 			key_not_void: a_key /= Void
 		local
-			foundation: FOUNDATION
+			base64: SIMPLE_BASE64
+			hasher: SIMPLE_HASH
 			sha1_bytes: ARRAY [NATURAL_8]
 			combined: STRING
 		do
 			combined := a_key + Guid
-			create foundation
-			sha1_bytes := foundation.sha1_bytes (combined)
-			Result := foundation.base64_encode_bytes (sha1_bytes)
+			create base64.make
+			create hasher.make
+			sha1_bytes := hasher.sha1_bytes (combined)
+			Result := base64.encode_bytes (sha1_bytes)
 		end
 
 	has_header (a_text: STRING; a_header: STRING; a_value: STRING): BOOLEAN
