@@ -224,7 +224,7 @@ feature {NONE} -- Implementation
 				bytes [i] := (random.item \\ 256).to_natural_8
 				i := i + 1
 			end
-			create foundation.make
+			create foundation
 			Result := foundation.base64_encode_bytes (bytes)
 		end
 
@@ -238,7 +238,7 @@ feature {NONE} -- Implementation
 			combined: STRING
 		do
 			combined := a_key + Guid
-			create foundation.make
+			create foundation
 			sha1_bytes := foundation.sha1_bytes (combined)
 			Result := foundation.base64_encode_bytes (sha1_bytes)
 		end
