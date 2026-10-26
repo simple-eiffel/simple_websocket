@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- 2026-10-26: dropped the ISE `net` library from the ECF; nothing used it (clean build, 20 pass).
 - Testing config updates, AutoTest fixes, .gitignore cleanup
 - Add SCOOP concurrency capability
 - Migrate to simple_testing library
